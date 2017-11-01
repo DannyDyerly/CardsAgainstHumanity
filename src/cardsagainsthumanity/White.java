@@ -26,11 +26,13 @@ public class White extends Card {
             g.setColor(Color.blue);
         else
             g.setColor(Color.white);
-        g.fillRoundRect(Window.getX(x+20), Window.getYNormal(250), 150, 200, 25, 25);
+        setXpos(x+20);
+        setYpos(250);
+        g.fillRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()), 150, 200, 25, 25);
         g.setColor(Color.black);
-        g.drawRoundRect(Window.getX(x+20), Window.getYNormal(250), 150, 200, 25, 25);
+        g.drawRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()), 150, 200, 25, 25);
         g.setFont(new Font("Arial",Font.PLAIN,24));
-        g.drawString("" + getText(),Window.getX(x+30),Window.getYNormal(220));
+        g.drawString("" + getText(),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-30));
     }
     
     public static White getRandomWhite(){

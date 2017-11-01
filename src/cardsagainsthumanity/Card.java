@@ -38,4 +38,20 @@ public class Card {
         return used;
     }
     
+    public void setXpos(int _xpos){
+        xpos = _xpos;
+    }
+    
+    public void setYpos(int _ypos){
+        ypos = _ypos;
+    }
+    
+    public int getXpos(){
+        return xpos;
+    }
+    
+    public int getYpos(){
+        return ypos;
+    }
+    
 }
