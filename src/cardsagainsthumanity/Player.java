@@ -21,6 +21,8 @@ public class Player {
     
     public void drawCard(){
         White addWhite = White.getRandomWhite();
+        if(addWhite == null)
+            return;
         addWhite.setUsed(true);
         hand.add(addWhite);
     }

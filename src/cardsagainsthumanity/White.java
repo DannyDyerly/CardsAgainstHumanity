@@ -29,6 +29,14 @@ public class White extends Card {
     }
     
     public static White getRandomWhite(){
+        boolean allUsed = true;
+        for(White obj : whites){
+            if(obj.getUsed() == false)
+                allUsed = false;
+        }
+        if(allUsed)
+            return null;
+        
         int white = (int)(Math.random()*whites.size());
         while(whites.get(white).getUsed() == true){
             white = (int)(Math.random()*whites.size());
