@@ -11,6 +11,8 @@ public class Card {
     private Player player;
     private int numInHand;
     private boolean used;
+    private int xpos;
+    private int ypos;
     protected static ArrayList<Card> cards = new ArrayList<Card>();
     
     Card(){

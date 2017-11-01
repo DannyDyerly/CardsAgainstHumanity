@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class White extends Card {
     private static int numWhiteCards;
+    private boolean selected;
     protected static ArrayList<White> whites = new ArrayList<White>();
     
     White(String _text){
@@ -14,13 +15,17 @@ public class White extends Card {
     
     public static White Create(String _text){
         White obj = new White(_text);
+        obj.selected = false;
         whites.add(obj);
         numWhiteCards++;
         return(obj);
     }
     
     public void draw(Graphics2D g, int x){
-        g.setColor(Color.white);
+        if(selected)
+            g.setColor(Color.blue);
+        else
+            g.setColor(Color.white);
         g.fillRoundRect(Window.getX(x+20), Window.getYNormal(250), 150, 200, 25, 25);
         g.setColor(Color.black);
         g.drawRoundRect(Window.getX(x+20), Window.getYNormal(250), 150, 200, 25, 25);
@@ -44,6 +49,10 @@ public class White extends Card {
                 break;
         }
         return (whites.get(white));
+    }
+    
+    public void checkSelect(int xpos, int ypos){
+        
     }
     
 }

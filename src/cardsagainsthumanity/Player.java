@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 public class Player {
+    private boolean czar = false;
     private int numCards;
     private ArrayList<White> hand = new ArrayList<White>();
     
@@ -25,6 +26,12 @@ public class Player {
             return;
         addWhite.setUsed(true);
         hand.add(addWhite);
+    }
+    
+    public void checkSelect(int xpos, int ypos){
+        for(White obj : hand){
+            obj.checkSelect(xpos, ypos);
+        }
     }
     
 }

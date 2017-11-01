@@ -40,6 +40,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
                     int ypos = e.getY();
                     
                     player1.drawCard();
+                    player1.checkSelect(xpos, ypos);
  
                 }
                 if (e.BUTTON3 == e.getButton()) {
