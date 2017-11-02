@@ -22,15 +22,16 @@ public class White extends Card {
     }
     
     public void draw(Graphics2D g, int x){
+        Color selectedBlue = new Color(62, 126, 172);
         if(selected)
-            g.setColor(Color.blue);
+            g.setColor(selectedBlue);
         else
             g.setColor(Color.white);
         setXpos(x+20);
         setYpos(250);
-        g.fillRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()), 150, 200, 25, 25);
+        g.fillRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()), length, height, 25, 25);
         g.setColor(Color.black);
-        g.drawRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()), 150, 200, 25, 25);
+        g.drawRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()), length, height, 25, 25);
         g.setFont(new Font("Arial",Font.PLAIN,24));
         g.drawString("" + getText(),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-30));
     }
@@ -54,9 +55,13 @@ public class White extends Card {
     }
     
     public void checkSelect(int xpos, int ypos){
-        
+        if(xpos > Window.getX(getXpos()) && xpos < Window.getX(getXpos()+length) && ypos > Window.getYNormal(getYpos()) && ypos < Window.getYNormal(getYpos()-height)){
+            selected = true;
+        }
     }
     
-    //yo
+    public void setSelected(boolean _selected){
+        selected = _selected;
+    }
     
 }

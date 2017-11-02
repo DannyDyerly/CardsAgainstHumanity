@@ -22,13 +22,16 @@ public class Player {
     
     public void drawCard(){
         White addWhite = White.getRandomWhite();
-        if(addWhite == null)
+        if(addWhite == null || hand.size()>=9)
             return;
         addWhite.setUsed(true);
         hand.add(addWhite);
     }
     
     public void checkSelect(int xpos, int ypos){
+        for(White obj : hand){
+            obj.setSelected(false);
+        }
         for(White obj : hand){
             obj.checkSelect(xpos, ypos);
         }

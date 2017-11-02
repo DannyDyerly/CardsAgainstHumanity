@@ -193,7 +193,7 @@ class Window {
     
     private static final int YTITLE = 30;
     private static final int WINDOW_BORDER = 8;
-    static final int WINDOW_WIDTH = 2*(WINDOW_BORDER + XBORDER) + 1600;
+    static final int WINDOW_WIDTH = 2*(WINDOW_BORDER + XBORDER) + 1800;
     static final int WINDOW_HEIGHT = YTITLE + WINDOW_BORDER + 900;
     static int xsize = -1;
     static int ysize = -1;
