@@ -27,16 +27,18 @@ public class White extends Card {
             g.setColor(selectedBlue);
         else
             g.setColor(Color.white);
-        setXpos(x+20);
-        setYpos(250);
-        g.fillRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()), length, height, 25, 25);
+
+        setXpos(x);
+        setYpos(260);
+        g.fillRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()), 200, 250, 25, 25);
         g.setColor(Color.black);
-        g.drawRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()), length, height, 25, 25);
-        g.setFont(new Font("Arial",Font.PLAIN,24));
+        g.drawRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()), 200, 250, 25, 25);
+        g.setFont(new Font("Arial",Font.PLAIN,20));
         g.drawString("" + getText(),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-30));
     }
     
     public static White getRandomWhite(){
+        
         boolean allUsed = true;
         for(White obj : whites){
             if(obj.getUsed() == false)
@@ -63,5 +65,4 @@ public class White extends Card {
     public void setSelected(boolean _selected){
         selected = _selected;
     }
-    
 }

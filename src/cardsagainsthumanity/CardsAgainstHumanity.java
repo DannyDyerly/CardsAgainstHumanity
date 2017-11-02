@@ -15,8 +15,17 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
     Graphics2D g;
     
     Black card1 = new Black("___. That's how I want to die.");
-    White card2 = White.Create("Coding.");
-    White card3 = White.Create("Mr. Yee.");
+    White card51 = White.Create("Coding.");
+    White card52 = White.Create("Mr. Yee.");
+    White card53 = White.Create("A dragon named Harold.");
+    White card54 = White.Create("Danny Dyerly's forehead.");
+    White card55 = White.Create("Yoda Yee.");
+    White card56 = White.Create("Yeesus.");
+    White card57 = White.Create("Beating your grandma with a field hockey stick.");
+    White card58 = White.Create("Nothing. Life sucks.");
+    White card59 = White.Create("Buying a robot kit for your daughter.");
+    White card60 = White.Create("Coming to the middle.");
+    White card61 = White.Create("Coming to the middle... again.");
     
     Player player1 = new Player();
     
@@ -193,7 +202,7 @@ class Window {
     
     private static final int YTITLE = 30;
     private static final int WINDOW_BORDER = 8;
-    static final int WINDOW_WIDTH = 2*(WINDOW_BORDER + XBORDER) + 1800;
+    static final int WINDOW_WIDTH = 2*(WINDOW_BORDER + XBORDER) + 1900;
     static final int WINDOW_HEIGHT = YTITLE + WINDOW_BORDER + 900;
     static int xsize = -1;
     static int ysize = -1;

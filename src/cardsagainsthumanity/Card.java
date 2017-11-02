@@ -13,8 +13,8 @@ public class Card {
     private boolean used;
     private int xpos;
     private int ypos;
-    protected static int length = 150;
-    protected static int height = 200;
+    protected static int length = 200;
+    protected static int height = 250;
     protected static ArrayList<Card> cards = new ArrayList<Card>();
     
     Card(){
