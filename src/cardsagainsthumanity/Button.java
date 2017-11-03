@@ -87,6 +87,7 @@ public class Button {
         for(Button obj : buttons){
             if(obj.text == "select card" && obj.mouseOver){
                 Player.removeCard();
+                Player.addCard();
             }
         }
     }

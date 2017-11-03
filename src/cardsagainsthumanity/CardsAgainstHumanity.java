@@ -184,6 +184,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
         Button.Create("select card",875, 300, false, 8);
         
         Player.Create("player1", false);
+        White.resetCards();
         
     }
 /////////////////////////////////////////////////////////////////////////

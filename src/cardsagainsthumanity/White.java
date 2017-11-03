@@ -125,6 +125,13 @@ public class White extends Card {
         return selected;
     }
     
+    public static void resetCards(){
+        for (White obj : whites){
+            obj.setUsed(false);
+            obj.selected=false;
+        }
+    }
+    
     public void checkMouseOver(int xpos, int ypos){
         if(xpos > Window.getX(getXpos()) && xpos < Window.getX(getXpos()+length) && ypos > Window.getYNormal(getYpos()) && ypos < Window.getYNormal(getYpos()-height)){
             mouseOver = true;

@@ -52,6 +52,18 @@ public class Player {
         }
     }
     
+    public static void addCard(){
+        for(Player obj : players){
+            if(turn==obj.number){
+                White addWhite = White.getRandomWhite();
+                if(addWhite == null || obj.hand.size()>=9)
+                    return;
+                addWhite.setUsed(true);
+                obj.hand.add(addWhite);
+            }
+        }
+    }
+    
     public static void CheckSelect(int xpos, int ypos){
         for(Player obj : players){
             if(turn == obj.number){
@@ -85,11 +97,23 @@ public class Player {
         for(Player obj : players){
             if(turn == obj.number){
                 if(getSelected() != null){
-                    System.out.println(getSelected().getText() + " removed");
                     obj.hand.remove(getSelected());
                 }
             }
+            if (obj.hand.isEmpty()){
+                White.resetCards();
+                for (int i =0;i<9;i++)
+                obj.fillHand();
+            }
         }
+    }
+    
+    public void fillHand(){
+            White addWhite = White.getRandomWhite();
+            if(addWhite == null || hand.size()>=9)
+                return;
+            addWhite.setUsed(true);
+            hand.add(addWhite);
     }
     
     public static void drawScores(Graphics2D g){
