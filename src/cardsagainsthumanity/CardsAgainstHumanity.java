@@ -14,6 +14,8 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
     Image image;
     Graphics2D g;
     
+    boolean inGame = false;
+
     Black card1 = new Black("___. That's how I want to die.");
     White card51 = White.Create("Coding.");
     White card52 = White.Create("Mr. Yee.");
@@ -25,10 +27,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
     White card58 = White.Create("Nothing. Life sucks.");
     White card59 = White.Create("Buying a robot kit for your daughter.");
     White card60 = White.Create("Coming to the middle.");
-    White card61 = White.Create("Coming to the middle... again.");
-    
-    Player player1 = new Player();
-    
+    White card61 = White.Create("Coming to the middle... again.");   
 
     static CardsAgainstHumanity frame;
     public static void main(String[] args) {
@@ -48,13 +47,17 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
                     int xpos = e.getX();
                     int ypos = e.getY();
                     
-                    player1.drawCard();
-                    player1.checkSelect(xpos, ypos);
+                    inGame = Button.checkStart(inGame);
+                    
+                    if(inGame){
+                        Player.CheckSelect(xpos, ypos);
+                        Button.selectCard();
+                    }
  
                 }
                 if (e.BUTTON3 == e.getButton()) {
                     //right button
-                    reset();
+                    //reset();
                 }
                 repaint();
             }
@@ -68,7 +71,10 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
 
     addMouseMotionListener(new MouseMotionAdapter() {
       public void mouseMoved(MouseEvent e) {
-
+        int xpos = e.getX();
+        int ypos = e.getY();
+        Button.checkMouseOver(xpos, ypos);
+        Player.checkMouseOver(xpos, ypos);
         repaint();
       }
     });
@@ -85,6 +91,9 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
                 } else if (e.VK_D == e.getKeyCode()) {
 
                 } else if (e.VK_SPACE == e.getKeyCode()) {   
+                    if(inGame){
+                        Player.DrawCards();
+                    }
                 }
                 repaint();
             }
@@ -128,7 +137,11 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
             return;
         }
         
-        player1.drawHand(g);
+        Button.DrawButtons(g);
+       
+        if(inGame){
+            Player.DrawHand(g);
+        }
 
         gOld.drawImage(image, 0, 0, null);
     }
@@ -162,6 +175,16 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
     }
 /////////////////////////////////////////////////////////////////////////
     public void reset() {
+        
+        boolean inGame = false;
+        
+        Button.Create("start", 910, 450, true, 10);
+        Button.Create("ok", 800, 250, false, 15);
+        Button.Create("cancel", 800, 550, false, 10);
+        Button.Create("select card",875, 300, false, 8);
+        
+        Player.Create("player1", false);
+        
     }
 /////////////////////////////////////////////////////////////////////////
     public void animate() {

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class White extends Card {
     private static int numWhiteCards;
     private boolean selected;
+    private boolean mouseOver;
     protected static ArrayList<White> whites = new ArrayList<White>();
     
     White(String _text){
@@ -16,6 +17,7 @@ public class White extends Card {
     public static White Create(String _text){
         White obj = new White(_text);
         obj.selected = false;
+        obj.mouseOver = false;
         whites.add(obj);
         numWhiteCards++;
         return(obj);
@@ -30,11 +32,12 @@ public class White extends Card {
 
         setXpos(x);
         setYpos(260);
-        g.fillRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()), 200, 250, 25, 25);
+        g.fillRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()), length, height, 25, 25);
         g.setColor(Color.black);
-        g.drawRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()), 200, 250, 25, 25);
+        g.drawRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()), length, height, 25, 25);
         g.setFont(new Font("Arial",Font.PLAIN,20));
-        g.drawString("" + getText(),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-30));
+        if(mouseOver || selected)
+            g.drawString("" + getText(),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-30));
     }
     
     public static White getRandomWhite(){
@@ -56,13 +59,28 @@ public class White extends Card {
         return (whites.get(white));
     }
     
-    public void checkSelect(int xpos, int ypos){
+    public boolean checkSelect(int xpos, int ypos){
         if(xpos > Window.getX(getXpos()) && xpos < Window.getX(getXpos()+length) && ypos > Window.getYNormal(getYpos()) && ypos < Window.getYNormal(getYpos()-height)){
             selected = true;
+            return true;
         }
+        return false;
     }
     
     public void setSelected(boolean _selected){
         selected = _selected;
     }
+    
+    public boolean getSelected(){
+        return selected;
+    }
+    
+    public void checkMouseOver(int xpos, int ypos){
+        if(xpos > Window.getX(getXpos()) && xpos < Window.getX(getXpos()+length) && ypos > Window.getYNormal(getYpos()) && ypos < Window.getYNormal(getYpos()-height)){
+            mouseOver = true;
+        }
+        else
+            mouseOver = false;
+    }
+    
 }
