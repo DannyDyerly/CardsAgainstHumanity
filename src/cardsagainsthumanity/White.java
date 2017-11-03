@@ -88,6 +88,7 @@ public class White extends Card {
             }
         }
         return(_amount);
+        //fuck you
     }
     
     public static White getRandomWhite(){
