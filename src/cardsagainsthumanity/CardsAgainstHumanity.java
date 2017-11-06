@@ -141,6 +141,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
        
         if(inGame){
             Player.DrawHand(g);
+            Player.DrawPickedCards(g);
         }
 
         gOld.drawImage(image, 0, 0, null);

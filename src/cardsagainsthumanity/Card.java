@@ -8,7 +8,6 @@ public class Card {
     private int numCards;
     private int id;
     private String text;
-    private Player player;
     private int numInHand;
     private boolean used;
     private int xpos;

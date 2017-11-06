@@ -5,6 +5,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class White extends Card {
+    private Player player;
     private static int numWhiteCards;
     private boolean selected;
     private boolean mouseOver;
@@ -23,7 +24,7 @@ public class White extends Card {
         return(obj);
     }
     
-    public void draw(Graphics2D g, int x){
+    public void draw(Graphics2D g, int x, int y, boolean hidden){
         Color selectedBlue = new Color(62, 126, 172);
         if(selected)
             g.setColor(selectedBlue);
@@ -31,52 +32,53 @@ public class White extends Card {
             g.setColor(Color.white);
 
         setXpos(x);
-        setYpos(260);
+        setYpos(y);
         g.fillRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()), length, height, 25, 25);
         g.setColor(Color.black);
         g.drawRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()), length, height, 25, 25);
         g.setFont(new Font("Arial",Font.PLAIN,20));
-        if(mouseOver || selected)
-        if (getText().length()>17){
-            g.drawString("" + getText().subSequence(0, getWords(18)),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-30));
-            if (getText().length()>34){
-                g.drawString("" + getText().subSequence(getWords(18), getWords(35)),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-60));
-                if (getText().length()>51){
-                    g.drawString("" + getText().subSequence(getWords(35), getWords(52)),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-90));
-                    if (getText().length()>68){
-                        g.drawString("" + getText().subSequence(getWords(52), getWords(69)),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-120));
-                        if (getText().length()>85){
-                            g.drawString("" + getText().subSequence(getWords(69), getWords(86)),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-150));
-                            if (getText().length()>102){
-                                g.drawString("" + getText().subSequence(getWords(86), getWords(103)),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-180));
-                                if (getText().length()>119){
-                                    g.drawString("" + getText().subSequence(getWords(103), getWords(120)),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-210));
-                                    if (getText().length()>136){
-                                        g.drawString("" + getText().subSequence(getWords(120), getWords(137)),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-240));
+        if(hidden == false || mouseOver || selected){
+            if (getText().length()>17){
+                g.drawString("" + getText().subSequence(0, getWords(18)),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-30));
+                if (getText().length()>34){
+                    g.drawString("" + getText().subSequence(getWords(18), getWords(35)),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-60));
+                    if (getText().length()>51){
+                        g.drawString("" + getText().subSequence(getWords(35), getWords(52)),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-90));
+                        if (getText().length()>68){
+                            g.drawString("" + getText().subSequence(getWords(52), getWords(69)),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-120));
+                            if (getText().length()>85){
+                                g.drawString("" + getText().subSequence(getWords(69), getWords(86)),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-150));
+                                if (getText().length()>102){
+                                    g.drawString("" + getText().subSequence(getWords(86), getWords(103)),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-180));
+                                    if (getText().length()>119){
+                                        g.drawString("" + getText().subSequence(getWords(103), getWords(120)),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-210));
+                                        if (getText().length()>136){
+                                            g.drawString("" + getText().subSequence(getWords(120), getWords(137)),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-240));
+                                        }
+                                        else
+                                            g.drawString("" + getText().subSequence(getWords(120), getText().length()),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-240));
                                     }
                                     else
-                                        g.drawString("" + getText().subSequence(getWords(120), getText().length()),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-240));
+                                        g.drawString("" + getText().subSequence(getWords(103), getText().length()),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-210));
                                 }
                                 else
-                                    g.drawString("" + getText().subSequence(getWords(103), getText().length()),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-210));
+                                    g.drawString("" + getText().subSequence(getWords(86), getText().length()),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-180));
                             }
                             else
-                                g.drawString("" + getText().subSequence(getWords(86), getText().length()),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-180));
+                                g.drawString("" + getText().subSequence(getWords(69), getText().length()),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-150));
                         }
                         else
-                            g.drawString("" + getText().subSequence(getWords(69), getText().length()),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-150));
+                            g.drawString("" + getText().subSequence(getWords(52), getText().length()),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-120));
                     }
                     else
-                        g.drawString("" + getText().subSequence(getWords(52), getText().length()),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-120));
+                        g.drawString("" + getText().subSequence(getWords(35), getText().length()),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-90));
                 }
                 else
-                    g.drawString("" + getText().subSequence(getWords(35), getText().length()),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-90));
+                    g.drawString("" + getText().subSequence(getWords(18), getText().length()),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-60));
             }
             else
-                g.drawString("" + getText().subSequence(getWords(18), getText().length()),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-60));
+                g.drawString("" + getText(),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-30));
         }
-        else
-            g.drawString("" + getText(),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-30));
     }
     
     public int getWords(int _amount){
@@ -138,6 +140,10 @@ public class White extends Card {
         }
         else
             mouseOver = false;
+    }
+    
+    public void setPlayer(Player _player){
+        player = _player;
     }
     
 }

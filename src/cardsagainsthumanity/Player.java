@@ -13,6 +13,7 @@ public class Player {
     private int number;
     private static ArrayList<Player> players = new ArrayList<Player>();
     private ArrayList<White> hand = new ArrayList<White>();
+    private static ArrayList<White> picked = new ArrayList<White>();
     
     Player(){
         
@@ -34,8 +35,9 @@ public class Player {
         for(Player obj : players){
             if(turn == obj.number){
                 int x = 10;
+                int y = 260;
                 for(White ptr: obj.hand){
-                    ptr.draw(g, x);
+                    ptr.draw(g, x, y, true);
                     x += 210;
                 }
             }
@@ -49,17 +51,19 @@ public class Player {
                 return;
             addWhite.setUsed(true);
             obj.hand.add(addWhite);
+            addWhite.setPlayer(obj);
         }
     }
     
     public static void addCard(){
         for(Player obj : players){
-            if(turn==obj.number){
+            if(turn == obj.number){
                 White addWhite = White.getRandomWhite();
                 if(addWhite == null || obj.hand.size()>=9)
                     return;
                 addWhite.setUsed(true);
                 obj.hand.add(addWhite);
+                addWhite.setPlayer(obj);
             }
         }
     }
@@ -97,7 +101,11 @@ public class Player {
         for(Player obj : players){
             if(turn == obj.number){
                 if(getSelected() != null){
-                    obj.hand.remove(getSelected());
+                    White selected = getSelected();
+                    addPickedCard(selected);
+                    obj.hand.remove(selected);
+                    selected.setSelected(false);
+                    
                 }
             }
             if (obj.hand.isEmpty()){
@@ -125,6 +133,29 @@ public class Player {
             if(turn == obj.number){
                 for(White ptr : obj.hand){
                     ptr.checkMouseOver(xpos, ypos);
+                }
+            }
+        }
+    }
+    
+    public static void addPickedCard(White _picked){
+        picked.add(_picked);
+    }
+    
+    public static void DrawPickedCards(Graphics2D g){
+        int x = 220;
+        int y = 850;
+        for(White obj : picked){
+            for(Player ptr : players){
+                if(ptr.number == 1)
+                    ptr.czar = true;
+                if(turn == ptr.number && ptr.czar){
+                    obj.draw(g, x, y, false);
+                    x += 210;
+                }
+                else{
+                    obj.draw(g, x, y, true);
+                    x += 210;
                 }
             }
         }
