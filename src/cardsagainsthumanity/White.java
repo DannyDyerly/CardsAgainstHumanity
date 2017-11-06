@@ -140,4 +140,6 @@ public class White extends Card {
             mouseOver = false;
     }
     
+    //JEWISH KIDS
+    
 }
