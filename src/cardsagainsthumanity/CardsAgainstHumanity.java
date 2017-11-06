@@ -16,7 +16,8 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
     
     boolean inGame = false;
 
-    Black card1 = new Black("___. That's how I want to die.");
+    Black card1 = Black.Create("_____. That's how I want to die.");
+    Black card2 = Black.Create("_____. Pretty fun on a Sunday.");
     White card51 = White.Create("Coding.");
     White card52 = White.Create("Mr. Yee.");
     White card53 = White.Create("A dragon named Harold.");
@@ -134,7 +135,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
 
         if (animateFirstTime) {
             gOld.drawImage(image, 0, 0, null);
-            return;
+        return;
         }
         
         Button.DrawButtons(g);
@@ -142,6 +143,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
         if(inGame){
             Player.DrawHand(g);
             Player.DrawPickedCards(g);
+            Black.getRandomBlack().draw(g);
         }
 
         gOld.drawImage(image, 0, 0, null);

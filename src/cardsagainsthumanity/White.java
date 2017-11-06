@@ -36,6 +36,7 @@ public class White extends Card {
         g.fillRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()), length, height, 25, 25);
         g.setColor(Color.black);
         g.drawRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()), length, height, 25, 25);
+        
         g.setFont(new Font("Arial",Font.PLAIN,20));
         if(hidden == false || mouseOver || selected){
             if (getText().length()>17){
@@ -121,6 +122,7 @@ public class White extends Card {
     
     public void setSelected(boolean _selected){
         selected = _selected;
+        System.out.println(""+selected);
     }
     
     public boolean getSelected(){

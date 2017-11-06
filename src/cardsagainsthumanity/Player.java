@@ -53,7 +53,10 @@ public class Player {
             obj.hand.add(addWhite);
             addWhite.setPlayer(obj);
         }
+        
     }
+    
+    
     
     public static void addCard(){
         for(Player obj : players){
