@@ -23,7 +23,7 @@ public class Button {
     Button(String _text, int _xpos, int _ypos, boolean _show, int _extra){
         text = _text;
         extra = _extra;
-        length = _text.length()*13+extra;
+        length = _text.length()*12-extra;
         height = 30;
         xpos = _xpos;
         ypos = _ypos;
@@ -47,8 +47,8 @@ public class Button {
                 g.fillRoundRect(Window.getX(obj.xpos), Window.getYNormal(obj.ypos), obj.length, obj.height, 10, 10);
                 g.setColor(Color.black);
                 g.drawRoundRect(Window.getX(obj.xpos), Window.getYNormal(obj.ypos), obj.length, obj.height, 10, 10);
-                g.setFont(new Font("Courier New",Font.PLAIN,20));
-                g.drawString("" + obj.text, Window.getX(obj.xpos+9), Window.getYNormal(obj.ypos-20));
+                g.setFont(new Font("Arial",Font.PLAIN,20));
+                g.drawString("" + obj.text, Window.getX(obj.xpos+9), Window.getYNormal(obj.ypos-22));
             }
         }
     }
@@ -66,10 +66,10 @@ public class Button {
     public static boolean checkStart(boolean inGame){
         if(inGame == false){
             for(Button obj : buttons){
-                if(obj.text == "start" && obj.mouseOver){
+                if(obj.text == "Start" && obj.mouseOver){
                     obj.show = false;
                     for(Button ptr : buttons){
-                        if(ptr.text == "select card")
+                        if(ptr.text == "Confirm Selection")
                             ptr.show = true;
                     }
                     for(int i=0; i<9; i++){
@@ -83,9 +83,9 @@ public class Button {
         return true;
     }
     
-    public static void selectCard(){
+    public static void confirmSelection(){
         for(Button obj : buttons){
-            if(obj.text == "select card" && obj.mouseOver){
+            if(obj.text == "Confirm Selection" && obj.mouseOver){
                 Player.removeCard();
                 Player.addCard();
             }

@@ -122,7 +122,6 @@ public class White extends Card {
     
     public void setSelected(boolean _selected){
         selected = _selected;
-        System.out.println(""+selected);
     }
     
     public boolean getSelected(){

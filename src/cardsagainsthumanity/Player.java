@@ -147,7 +147,7 @@ public class Player {
     
     public static void DrawPickedCards(Graphics2D g){
         int x = 220;
-        int y = 850;
+        int y = 890;
         for(White obj : picked){
             for(Player ptr : players){
                 if(ptr.number == 1)
