@@ -133,7 +133,7 @@ public class White extends Card {
     public static void resetCards(){
         for (White obj : whites){
             obj.setUsed(false);
-            obj.selected=false;
+            obj.selected = false;
         }
     }
     

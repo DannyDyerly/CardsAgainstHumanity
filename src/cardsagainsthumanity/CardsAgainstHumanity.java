@@ -147,7 +147,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
             Player.DrawHand(g);
             Player.DrawPickedCards(g);
             Black.getRandomBlack().draw(g);
-            
+            Player.printHelp(g);
             
         }
             Player.drawScores(g);
@@ -189,7 +189,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
         Button.Create("Start", 920, 450, true, 0);
         Button.Create("Ok", 800, 250, false, 15);
         Button.Create("Cancel", 800, 550, false, 10);
-        Button.Create("Confirm Selection", 865, 300, false, 32);
+        Button.Create("Confirm Selection", 22, 630, false, 32);
         Button.Create("Add Player", 892, 500, true, 7);
         
         White.resetCards();
