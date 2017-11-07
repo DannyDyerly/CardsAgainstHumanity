@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Player {
     private static int numPlayers;
     private static int cardCzar;
-    private static int turn = 1;
+    private static int turn = 2;
     private boolean czar = false;
     private int numCards;
     private String name;
@@ -147,7 +147,17 @@ public class Player {
     
     public static void addPickedCard(White _picked){
         picked.add(_picked);
+        changeTurn();
+    }
+    
+    public static void changeTurn(){
         turn++;
+        for(Player obj : players){
+            if(turn == obj.number && obj.czar && turn < numPlayers)
+                turn++;
+        }
+        if(turn > numPlayers)
+            turn = 1;
     }
     
     public static void DrawPickedCards(Graphics2D g){
