@@ -46,11 +46,14 @@ public class Button {
                     g.setColor(mouseOverBlue);
                 else
                     g.setColor(Color.white);
-                g.fillRoundRect(Window.getX(obj.xpos), Window.getYNormal(obj.ypos), obj.length, obj.height, 10, 10);
+                g.fillRoundRect(Window.getX(obj.xpos), Window.getYNormal(obj.ypos), obj.length, obj.height, 25, 25);
                 g.setColor(Color.black);
-                g.drawRoundRect(Window.getX(obj.xpos), Window.getYNormal(obj.ypos), obj.length, obj.height, 10, 10);
+                g.drawRoundRect(Window.getX(obj.xpos), Window.getYNormal(obj.ypos), obj.length, obj.height, 25, 25);
                 g.setFont(new Font("Arial",Font.PLAIN,20));
-                g.drawString("" + obj.text, Window.getX(obj.xpos+9), Window.getYNormal(obj.ypos-22));
+                if(obj.text == "Confirm Selection")
+                    g.drawString("" + obj.text, Window.getX(obj.xpos+22), Window.getYNormal(obj.ypos-22));
+                else
+                    g.drawString("" + obj.text, Window.getX(obj.xpos+9), Window.getYNormal(obj.ypos-22));
             }
         }
     }
@@ -68,7 +71,7 @@ public class Button {
     public static boolean checkStart(boolean inGame){
         if(inGame == false){
             for(Button obj : buttons){
-                if(obj.text == "Start" && obj.mouseOver){
+                if(obj.text == "Start" && obj.mouseOver && Player.getNumPlayers() >= 3){
                     obj.show = false;
                     for(Button ref : buttons){
                         if(ref.text == "Add Player")

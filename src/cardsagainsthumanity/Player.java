@@ -160,13 +160,15 @@ public class Player {
         g.setColor(Color.BLACK);
         g.drawRect(Window.getX(x), Window.getYNormal(y), 400, 30);
         g.setFont(new Font("Arial",Font.PLAIN,40));
-        if (inGame)
-        g.drawString("Waiting for players...", Window.getX(10), Window.getYNormal(900-53));
+        if (inGame){
+            g.drawRoundRect(Window.getX(10), Window.getYNormal(890), 380, 80, 25, 25);
+            g.drawString("Waiting for players...", Window.getX(20), Window.getYNormal(900-53));
+        }
         g.setFont(new Font("Arial",Font.PLAIN,20));
         g.drawString("Scoreboard", Window.getX(x+7), Window.getYNormal(y-23));
         g.setFont(new Font("Arial",Font.PLAIN,15));
         if (inGame)
-        g.drawString("The black card for this round is:", Window.getX(10), Window.getYNormal(900-83));
+        g.drawString("The black card for this round is:", Window.getX(20), Window.getYNormal(900-80));
         g.setFont(new Font("Arial",Font.PLAIN,20));
         y-=30;
         for (Player obj : players){

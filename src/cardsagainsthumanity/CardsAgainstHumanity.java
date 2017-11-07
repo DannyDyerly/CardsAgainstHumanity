@@ -141,6 +141,22 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
         return;
         }
         
+        if(inGame == false){
+            g.setFont(new Font("Arial",Font.BOLD,100));
+            g.drawRoundRect(Window.getX(10), Window.getYNormal(880), 1200, 125, 25, 25);
+            g.drawString("Cards Against Humanity", Window.getX(25), Window.getYNormal(790));
+            
+            g.setFont(new Font("Arial",Font.PLAIN,36));
+            g.drawRoundRect(Window.getX(10), Window.getYNormal(740), 525, 60, 25, 25);
+            g.drawString("Danny Dyerly & Pavel Demidov", Window.getX(25), Window.getYNormal(700));
+            
+            g.setFont(new Font("Arial",Font.PLAIN,24));
+            g.drawRoundRect(Window.getX(10), Window.getYNormal(665), 280, 105, 25, 25);
+            g.drawString("- play on one computer", Window.getX(25), Window.getYNormal(635));
+            g.drawString("- 3 to 5 players", Window.getX(25), Window.getYNormal(605));
+            g.drawString("- click start when ready", Window.getX(25), Window.getYNormal(575));
+        }
+        
         Button.DrawButtons(g);
        
         if(inGame){
@@ -189,7 +205,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
         Button.Create("Start", 920, 450, true, 0);
         Button.Create("Ok", 800, 250, false, 15);
         Button.Create("Cancel", 800, 550, false, 10);
-        Button.Create("Confirm Selection", 22,540, false, 32);
+        Button.Create("Confirm Selection", 10,540, false, 5);
         Button.Create("Add Player", 892, 500, true, 7);
         
         White.resetCards();
