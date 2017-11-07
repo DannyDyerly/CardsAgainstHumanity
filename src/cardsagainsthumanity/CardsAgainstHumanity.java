@@ -53,6 +53,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
                     
                     if(inGame){
                         Player.CheckSelect(xpos, ypos);
+                        Player.CheckSelectCzar(xpos, ypos);
                         Button.confirmSelection();
                     }
  
@@ -77,6 +78,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
         int ypos = e.getY();
         Button.checkMouseOver(xpos, ypos);
         Player.checkMouseOver(xpos, ypos);
+        Player.checkMouseOverCzar(xpos, ypos);
         repaint();
       }
     });

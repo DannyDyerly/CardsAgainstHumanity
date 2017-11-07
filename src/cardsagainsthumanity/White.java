@@ -9,6 +9,7 @@ public class White extends Card {
     private static int numWhiteCards;
     private boolean selected;
     private boolean mouseOver;
+    private boolean picked;
     protected static ArrayList<White> whites = new ArrayList<White>();
     
     White(String _text){
@@ -19,6 +20,7 @@ public class White extends Card {
         White obj = new White(_text);
         obj.selected = false;
         obj.mouseOver = false;
+        obj.picked = false;
         whites.add(obj);
         numWhiteCards++;
         return(obj);
@@ -145,6 +147,10 @@ public class White extends Card {
     
     public void setPlayer(Player _player){
         player = _player;
+    }
+    
+    public void setPicked(boolean _picked){
+        picked = _picked;
     }
     
 }

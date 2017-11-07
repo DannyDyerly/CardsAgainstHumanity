@@ -91,6 +91,22 @@ public class Player {
         }
     }
     
+    public static void CheckSelectCzar(int xpos, int ypos){
+        for(Player obj : players){
+            if(turn == obj.number && obj.czar){
+                for(White ptr : picked){
+                    boolean success = ptr.checkSelect(xpos, ypos);
+                    if(success){
+                        for(White ref : picked){
+                            if(ref != ptr)
+                                ref.setSelected(false);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     public static White getSelected(){
         for(Player obj : players){
             if(turn == obj.number){
@@ -144,6 +160,16 @@ public class Player {
         }
     }
     
+    public static void checkMouseOverCzar(int xpos, int ypos){
+        for(Player obj : players){
+            if(turn == obj.number && obj.czar){
+                for(White ptr : picked){
+                    ptr.checkMouseOver(xpos, ypos);
+                }
+            }
+        }
+    }
+    
     public static void addPickedCard(White _picked){
         picked.add(_picked);
         changeTurn();
@@ -155,15 +181,25 @@ public class Player {
             if(turn == obj.number && obj.czar && turn < numPlayers)
                 turn++;
         }
-        if(turn > numPlayers)
+        if(turn > numPlayers){
             turn = 1;
+        }
     }
     
     public static void DrawPickedCards(Graphics2D g){
         int x = 220;
         int y = 890;
+        boolean hide = true;
+        for(Player obj : players){
+            if(turn == obj.number && obj.czar){
+                hide = false;
+            }
+        }
         for(White obj : picked){
-            obj.draw(g, x, y, false);
+            if(hide)
+                obj.draw(g, x, y, true);
+            else
+                obj.draw(g, x, y, false);
             x += 210;
         }
     }
