@@ -68,6 +68,10 @@ public class Button {
             for(Button obj : buttons){
                 if(obj.text == "Start" && obj.mouseOver){
                     obj.show = false;
+                    for(Button ref : buttons){
+                        if(ref.text == "Add Player")
+                            ref.show = false;
+                    }
                     for(Button ptr : buttons){
                         if(ptr.text == "Confirm Selection")
                             ptr.show = true;
@@ -88,6 +92,14 @@ public class Button {
             if(obj.text == "Confirm Selection" && obj.mouseOver){
                 Player.removeCard();
                 Player.addCard();
+            }
+        }
+    }
+    
+    public static void addPlayer(){
+        for(Button obj : buttons){
+            if(obj.text == "Add Player" && obj.mouseOver){
+                Player.Create("player1", false);
             }
         }
     }

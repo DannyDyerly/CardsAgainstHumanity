@@ -22,6 +22,7 @@ public class Player {
     Player(String _name, int _number, boolean _czar){
         name = _name;
         number = _number;
+        System.out.println(number);
         czar = _czar;
     }
     
@@ -108,7 +109,6 @@ public class Player {
                     addPickedCard(selected);
                     obj.hand.remove(selected);
                     selected.setSelected(false);
-                    
                 }
             }
             if (obj.hand.isEmpty()){
@@ -143,25 +143,20 @@ public class Player {
     
     public static void addPickedCard(White _picked){
         picked.add(_picked);
+        turn++;
     }
     
     public static void DrawPickedCards(Graphics2D g){
         int x = 220;
         int y = 890;
         for(White obj : picked){
-            for(Player ptr : players){
-                if(ptr.number == 1)
-                    ptr.czar = true;
-                if(turn == ptr.number && ptr.czar){
-                    obj.draw(g, x, y, false);
-                    x += 210;
-                }
-                else{
-                    obj.draw(g, x, y, true);
-                    x += 210;
-                }
-            }
+            obj.draw(g, x, y, false);
+            x += 210;
         }
+    }
+    
+    public static int getTurn(){
+        return turn;
     }
     
 }
