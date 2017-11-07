@@ -147,8 +147,10 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
             Player.DrawHand(g);
             Player.DrawPickedCards(g);
             Black.getRandomBlack().draw(g);
+            
+            
         }
-
+            Player.drawScores(g);
         gOld.drawImage(image, 0, 0, null);
     }
 ////////////////////////////////////////////////////////////////////////////

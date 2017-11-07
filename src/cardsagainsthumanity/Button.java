@@ -14,6 +14,7 @@ public class Button {
     private int ypos;
     private boolean show;
     private boolean mouseOver;
+    static int name;
     private static ArrayList<Button> buttons = new ArrayList<Button>();
     
     Button(){
@@ -29,6 +30,7 @@ public class Button {
         ypos = _ypos;
         show = _show;
         mouseOver = false;
+        name = 1;
     }
     
     public static void Create(String _text, int _xpos, int _ypos, boolean _show, int _extra){
@@ -97,9 +99,12 @@ public class Button {
     }
     
     public static void addPlayer(){
-        for(Button obj : buttons){
-            if(obj.text == "Add Player" && obj.mouseOver){
-                Player.Create("player1");
+        if (Player.getNumPlayers()<5){
+            for(Button obj : buttons){
+                if(obj.text == "Add Player" && obj.mouseOver){
+                    Player.Create("player"+name);
+                    name++;
+                }
             }
         }
     }

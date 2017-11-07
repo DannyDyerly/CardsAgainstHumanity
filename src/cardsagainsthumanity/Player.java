@@ -1,5 +1,7 @@
 package cardsagainsthumanity;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
@@ -11,6 +13,7 @@ public class Player {
     private int numCards;
     private String name;
     private int number;
+    private int score;
     private static ArrayList<Player> players = new ArrayList<Player>();
     private ArrayList<White> hand = new ArrayList<White>();
     private static ArrayList<White> picked = new ArrayList<White>();
@@ -23,6 +26,7 @@ public class Player {
         name = _name;
         number = _number;
         czar = _czar;
+        score=0;
     }
     
     public static void Create(String _name){
@@ -147,7 +151,15 @@ public class Player {
     }
     
     public static void drawScores(Graphics2D g){
-        
+        int x = 1590;
+        int y = 890;
+        for (Player obj : players){
+            g.setColor(Color.BLACK);
+            g.drawRect(Window.getX(x), Window.getYNormal(y), 300, 30);
+            g.setFont(new Font("Arial",Font.PLAIN,20));
+            g.drawString(obj.name+" - "+obj.score, Window.getX(x+7), Window.getYNormal(y-23));
+            y-=30;
+        }
     }
     
     public static void checkMouseOver(int xpos, int ypos){
@@ -206,6 +218,10 @@ public class Player {
     
     public static int getTurn(){
         return turn;
+    }
+    
+    public static int getNumPlayers(){
+        return numPlayers;
     }
     
 }
