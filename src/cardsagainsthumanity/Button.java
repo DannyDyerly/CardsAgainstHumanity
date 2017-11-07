@@ -99,7 +99,7 @@ public class Button {
     public static void addPlayer(){
         for(Button obj : buttons){
             if(obj.text == "Add Player" && obj.mouseOver){
-                Player.Create("player1", false);
+                Player.Create("player1");
             }
         }
     }

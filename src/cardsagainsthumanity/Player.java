@@ -26,9 +26,13 @@ public class Player {
         czar = _czar;
     }
     
-    public static void Create(String _name, boolean _czar){
+    public static void Create(String _name){
         numPlayers++;
-        Player obj = new Player(_name, numPlayers, _czar);
+        Player obj = null;
+        if(numPlayers == 1)
+            obj = new Player(_name, numPlayers, true);
+        else
+            obj = new Player(_name, numPlayers, false);
         players.add(obj);
     }
     
