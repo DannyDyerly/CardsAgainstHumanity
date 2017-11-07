@@ -23,7 +23,7 @@ public class Black extends Card {
     public void draw(Graphics2D g){
 
         setXpos(10);
-        setYpos(890);
+        setYpos(800);
         g.fillRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()), length, height, 25, 25);
         g.setColor(Color.black);
         g.drawRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()), length, height, 25, 25);

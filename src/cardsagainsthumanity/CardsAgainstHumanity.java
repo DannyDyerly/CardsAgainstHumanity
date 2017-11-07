@@ -28,7 +28,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
     White card58 = White.Create("Nothing. Life sucks.");
     White card59 = White.Create("Buying a robot kit for your daughter.");
     White card60 = White.Create("Coming to the middle.");
-    White card61 = White.Create("Coming to the middle... again.");   
+    White card61 = White.Create("Coming to the middle... again.");
 
     static CardsAgainstHumanity frame;
     public static void main(String[] args) {
@@ -150,7 +150,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
             Player.printHelp(g);
             
         }
-            Player.drawScores(g);
+            Player.drawScores(g,inGame);
         gOld.drawImage(image, 0, 0, null);
     }
 ////////////////////////////////////////////////////////////////////////////
@@ -189,7 +189,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
         Button.Create("Start", 920, 450, true, 0);
         Button.Create("Ok", 800, 250, false, 15);
         Button.Create("Cancel", 800, 550, false, 10);
-        Button.Create("Confirm Selection", 22, 630, false, 32);
+        Button.Create("Confirm Selection", 22,540, false, 32);
         Button.Create("Add Player", 892, 500, true, 7);
         
         White.resetCards();

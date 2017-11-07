@@ -154,15 +154,29 @@ public class Player {
             hand.add(addWhite);
     }
     
-    public static void drawScores(Graphics2D g){
-        int x = 1590;
+    public static void drawScores(Graphics2D g, boolean inGame){
+        int x = 1490;
         int y = 890;
+        g.setColor(Color.BLACK);
+        g.drawRect(Window.getX(x), Window.getYNormal(y), 400, 30);
+        g.setFont(new Font("Arial",Font.PLAIN,40));
+        if (inGame)
+        g.drawString("Waiting for players...", Window.getX(10), Window.getYNormal(900-53));
+        g.setFont(new Font("Arial",Font.PLAIN,20));
+        g.drawString("Scoreboard", Window.getX(x+7), Window.getYNormal(y-23));
+        g.setFont(new Font("Arial",Font.PLAIN,15));
+        if (inGame)
+        g.drawString("The black card for this round is:", Window.getX(10), Window.getYNormal(900-83));
+        g.setFont(new Font("Arial",Font.PLAIN,20));
+        y-=30;
         for (Player obj : players){
-            g.setColor(Color.BLACK);
-            g.drawRect(Window.getX(x), Window.getYNormal(y), 300, 30);
-            g.setFont(new Font("Arial",Font.PLAIN,20));
-            g.drawString(obj.name+" - "+obj.score, Window.getX(x+7), Window.getYNormal(y-23));
-            y-=30;
+            g.drawRect(Window.getX(x), Window.getYNormal(y), 400, 60);
+            g.drawString(obj.name, Window.getX(x+7), Window.getYNormal(y-23));
+            g.drawString(obj.score + " Awesome Points",Window.getX(x+7), Window.getYNormal(y-53));
+            if (obj.czar){
+                g.drawString("Selecting",Window.getX(x+315), Window.getYNormal(y-23));
+            }
+            y-=60;
         }
     }
     
@@ -204,7 +218,7 @@ public class Player {
     
     public static void DrawPickedCards(Graphics2D g){
         int x = 220;
-        int y = 890;
+        int y = 800;
         boolean hide = true;
         for(Player obj : players){
             if(turn == obj.number && obj.czar){

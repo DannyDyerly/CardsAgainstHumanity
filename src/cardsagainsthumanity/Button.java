@@ -102,7 +102,7 @@ public class Button {
         if (Player.getNumPlayers()<5){
             for(Button obj : buttons){
                 if(obj.text == "Add Player" && obj.mouseOver){
-                    Player.Create("player"+name);
+                    Player.Create("Player "+name);
                     name++;
                 }
             }
