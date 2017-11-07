@@ -202,8 +202,6 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
             reset();                   
         }
         
-        System.out.println(Player.getTurn());
-        
     }
 ////////////////////////////////////////////////////////////////////////////
     public void start() {

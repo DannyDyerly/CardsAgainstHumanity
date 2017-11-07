@@ -22,7 +22,6 @@ public class Player {
     Player(String _name, int _number, boolean _czar){
         name = _name;
         number = _number;
-        System.out.println(number);
         czar = _czar;
     }
     
