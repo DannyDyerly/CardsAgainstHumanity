@@ -45,7 +45,7 @@ public class Player {
                 g.setColor(Color.black);
                 g.drawRoundRect(Window.getX(20), Window.getYNormal(260), 1860, 240, 25, 25);
                 g.setFont(new Font("Arial",Font.BOLD,24));
-                g.drawString("You are the Card Czar", Window.getX(800), Window.getYNormal(150));
+                g.drawString("You are the Card Czar", Window.getX(820), Window.getYNormal(140));
             }
             else if(turn == obj.number){
                 int x = 10;
@@ -158,7 +158,7 @@ public class Player {
         int x = 1490;
         int y = 890;
         g.setColor(Color.BLACK);
-        g.drawRect(Window.getX(x), Window.getYNormal(y), 400, 30);
+        g.drawRoundRect(Window.getX(x), Window.getYNormal(y), 400, 30,25,25);
         g.setFont(new Font("Arial",Font.PLAIN,40));
         if (inGame){
             g.drawRoundRect(Window.getX(10), Window.getYNormal(890), 380, 80, 25, 25);
@@ -170,15 +170,15 @@ public class Player {
         if (inGame)
         g.drawString("The black card for this round is:", Window.getX(20), Window.getYNormal(900-80));
         g.setFont(new Font("Arial",Font.PLAIN,20));
-        y-=30;
+        y-=40;
         for (Player obj : players){
-            g.drawRect(Window.getX(x), Window.getYNormal(y), 400, 60);
+            g.drawRoundRect(Window.getX(x), Window.getYNormal(y), 400, 60,25,25);
             g.drawString(obj.name, Window.getX(x+7), Window.getYNormal(y-23));
             g.drawString(obj.score + " Awesome Points",Window.getX(x+7), Window.getYNormal(y-53));
             if (obj.czar){
-                g.drawString("Selecting",Window.getX(x+315), Window.getYNormal(y-23));
+                g.drawString("Selecting",Window.getX(x+250), Window.getYNormal(y-36));
             }
-            y-=60;
+            y-=70;
         }
     }
     
@@ -245,6 +245,12 @@ public class Player {
     }
     
     public static void printHelp(Graphics2D g){
+        g.setFont(new Font("Arial",Font.PLAIN,30));
+        Color selectedBlue = new Color(62, 126, 172);
+        g.setColor(selectedBlue);
+        g.drawString("Help",Window.getX(20) , Window.getYNormal(460));
+        g.drawRoundRect(Window.getX(10), Window.getYNormal(500), 900, 230, 25, 25);
+        g.setFont(new Font("Arial",Font.PLAIN,20));
         for(Player obj : players){
             if(turn == obj.number){
                 if(obj.czar){
@@ -253,14 +259,12 @@ public class Player {
                         if(ptr.getSelected())
                             pickedSelected = true;
                     }
-                    Color selectedBlue = new Color(62, 126, 172);
-                    g.setColor(selectedBlue);
-                    g.setFont(new Font("Arial",Font.PLAIN,20));
                     if(pickedSelected)
                         g.drawString("Click ''Confirm Selection'' when ready!", Window.getX(20), Window.getYNormal(400));
-                    else
-                        g.drawString("Read the black card filling in the spaces with the white /n cards and select the funniest one!", Window.getX(20), Window.getYNormal(400));
-
+                    else{
+                        g.drawString("Read the black card with the white cards as answers and select the funniest one!", Window.getX(20), Window.getYNormal(400));
+                        g.drawString("Click to select.", Window.getX(20), Window.getYNormal(370));
+                    }
                 }
                 else{
                     boolean selected = false;
@@ -268,13 +272,12 @@ public class Player {
                         if(ptr.getSelected())
                             selected = true;
                     }
-                    Color selectedBlue = new Color(62, 126, 172);
-                    g.setColor(selectedBlue);
-                    g.setFont(new Font("Arial",Font.PLAIN,20));
                     if(selected)
                         g.drawString("Click ''Confirm Selection'' when ready!", Window.getX(20), Window.getYNormal(400));
-                    else
-                        g.drawString("Read through your hand of white cards and select the one that fills in the black card to make it the funniest!", Window.getX(20), Window.getYNormal(400));
+                    else{
+                        g.drawString("Read through your hand of white cards and select the one that answers the black card the funniest!", Window.getX(20), Window.getYNormal(400));
+                        g.drawString("Hover over the white cards to view them. Click to select.", Window.getX(20), Window.getYNormal(370));
+                    }
                 }
             }
         }
