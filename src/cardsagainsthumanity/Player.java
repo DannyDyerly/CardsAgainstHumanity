@@ -43,7 +43,7 @@ public class Player {
         for(Player obj : players){
             if(turn == obj.number && obj.czar){
                 g.setColor(Color.black);
-                g.drawRoundRect(Window.getX(20), Window.getYNormal(260), 1860, 240, 25, 25);
+                g.drawRoundRect(Window.getX(10), Window.getYNormal(260), 1880, 250, 25, 25);
                 g.setFont(new Font("Arial",Font.BOLD,24));
                 g.drawString("You are the Card Czar", Window.getX(820), Window.getYNormal(140));
             }
@@ -248,8 +248,8 @@ public class Player {
         g.setFont(new Font("Arial",Font.PLAIN,30));
         Color selectedBlue = new Color(62, 126, 172);
         g.setColor(selectedBlue);
-        g.drawString("Help",Window.getX(20) , Window.getYNormal(460));
-        g.drawRoundRect(Window.getX(10), Window.getYNormal(500), 900, 230, 25, 25);
+        g.drawString("Help",Window.getX(20) , Window.getYNormal(360));
+        g.drawRoundRect(Window.getX(10), Window.getYNormal(400), 1880, 130, 25, 25);
         g.setFont(new Font("Arial",Font.PLAIN,20));
         for(Player obj : players){
             if(turn == obj.number){
@@ -260,10 +260,10 @@ public class Player {
                             pickedSelected = true;
                     }
                     if(pickedSelected)
-                        g.drawString("Click ''Confirm Selection'' when ready!", Window.getX(20), Window.getYNormal(400));
+                        g.drawString("Click ''Confirm Selection'' when ready!", Window.getX(20), Window.getYNormal(325));
                     else{
-                        g.drawString("Read the black card with the white cards as answers and select the funniest one!", Window.getX(20), Window.getYNormal(400));
-                        g.drawString("Click to select.", Window.getX(20), Window.getYNormal(370));
+                        g.drawString("Read the black card with the white cards as answers and select the funniest one!", Window.getX(20), Window.getYNormal(325));
+                        g.drawString("Click to select.", Window.getX(20), Window.getYNormal(295));
                     }
                 }
                 else{
@@ -273,10 +273,10 @@ public class Player {
                             selected = true;
                     }
                     if(selected)
-                        g.drawString("Click ''Confirm Selection'' when ready!", Window.getX(20), Window.getYNormal(400));
+                        g.drawString("Click ''Confirm Selection'' when ready!", Window.getX(20), Window.getYNormal(325));
                     else{
-                        g.drawString("Read through your hand of white cards and select the one that answers the black card the funniest!", Window.getX(20), Window.getYNormal(400));
-                        g.drawString("Hover over the white cards to view them. Click to select.", Window.getX(20), Window.getYNormal(370));
+                        g.drawString("Read through your hand of white cards and select the one that answers the black card to", Window.getX(20), Window.getYNormal(325));
+                        g.drawString("make it the funniest! Hover over the white cards to view them, then click to select.", Window.getX(20), Window.getYNormal(295));
                     }
                 }
             }
