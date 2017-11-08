@@ -270,7 +270,7 @@ public class Player {
                             pickedSelected = true;
                     }
                     if(pickedSelected)
-                        g.drawString("Click ''Confirm Selection'' when ready!", Window.getX(20), Window.getYNormal(325));
+                        g.drawString("Click ''Confirm Selection'' when ready!", Window.getX(20), Window.getYNormal(385));
                     else{
                         g.drawString("Read the black card with the white cards as answers and select the funniest one! Click to select.", Window.getX(20), Window.getYNormal(385));
                     }
@@ -282,7 +282,7 @@ public class Player {
                             selected = true;
                     }
                     if(selected)
-                        g.drawString("Click ''Confirm Selection'' when ready!", Window.getX(20), Window.getYNormal(325));
+                        g.drawString("Click ''Confirm Selection'' when ready!", Window.getX(20), Window.getYNormal(385));
                     else{
                         g.drawString("Read through your hand of white cards and select the one that answers the black card the funniest! Hover over the white cards to view them. Click to select.", Window.getX(20), Window.getYNormal(385));
                     }
