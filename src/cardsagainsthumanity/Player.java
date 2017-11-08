@@ -44,7 +44,7 @@ public class Player {
                 g.setColor(Color.black);
                 g.drawRoundRect(Window.getX(10), Window.getYNormal(260), 1880, 250, 25, 25);
                 g.setFont(new Font("Arial",Font.BOLD,24));
-                g.drawString("You are the Card Czar", Window.getX(820), Window.getYNormal(140));
+                g.drawString("You are the Card Czar", Window.getX(820), Window.getYNormal(135));
             }
             else if(turn == obj.number){
                 int x = 10;
@@ -175,8 +175,8 @@ public class Player {
         if (inGame){
             g.drawRoundRect(Window.getX(400), Window.getYNormal(890), 1080, 80,25,25);
             g.drawRoundRect(Window.getX(10), Window.getYNormal(890), 380, 80, 25, 25);
-            g.drawRoundRect(Window.getX(1060), Window.getYNormal(800), 420, 290,25,25);
-            g.drawRoundRect(Window.getX(220), Window.getYNormal(540), 830, 30,25,25);
+            g.drawRoundRect(Window.getX(1060), Window.getYNormal(800), 420, 250,25,25);
+            g.drawRoundRect(Window.getX(1060), Window.getYNormal(540), 420, 30,25,25);
             g.drawString("Waiting for players...", Window.getX(20), Window.getYNormal(900-53));
         }
         g.setFont(new Font("Arial",Font.PLAIN,20));
@@ -186,6 +186,21 @@ public class Player {
         g.drawString("The black card for this round is:", Window.getX(20), Window.getYNormal(900-80));
         g.setFont(new Font("Arial",Font.PLAIN,20));
         y-=40;
+        Color selectedBlue = new Color(62, 126, 172);
+        g.setColor(selectedBlue);
+        if (inGame){
+        if (turn==1)
+            g.fillRoundRect(Window.getX(x), Window.getYNormal(y), 400, 60,25,25);
+        else if (turn==2)
+            g.fillRoundRect(Window.getX(x), Window.getYNormal(y-70), 400, 60,25,25);
+        else if (turn==3)
+            g.fillRoundRect(Window.getX(x), Window.getYNormal(y-140), 400, 60,25,25);
+        else if (turn==4)
+            g.fillRoundRect(Window.getX(x), Window.getYNormal(y-210), 400, 60,25,25);
+        else
+            g.fillRoundRect(Window.getX(x), Window.getYNormal(y-280), 400, 60,25,25);
+        }
+        g.setColor(Color.black);
         g.drawRoundRect(Window.getX(x), Window.getYNormal(y), 400, 60,25,25);
         g.drawRoundRect(Window.getX(x), Window.getYNormal(y-70), 400, 60,25,25);
         g.drawRoundRect(Window.getX(x), Window.getYNormal(y-140), 400, 60,25,25);
@@ -199,6 +214,7 @@ public class Player {
             }
             y-=70;
         }
+        
     }
     
     public static void checkMouseOver(int xpos, int ypos){
@@ -247,10 +263,15 @@ public class Player {
             }
         }
         for(White obj : picked){
-            if(hide)
+                g.drawRoundRect(Window.getX(x), Window.getYNormal(540), 200, 30,25,25);
+                g.setFont(new Font("Arial",Font.PLAIN,20));
+            if(hide){
                 obj.draw(g, x, y, true);
-            else
+            }
+            else{
                 obj.draw(g, x, y, false);
+                g.drawString(""+obj.getPlayer().name, x+20, Window.getYNormal(517));
+            }
             x += 210;
         }
     }
