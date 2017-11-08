@@ -161,7 +161,10 @@ public class Player {
         g.drawRoundRect(Window.getX(x), Window.getYNormal(y), 400, 30,25,25);
         g.setFont(new Font("Arial",Font.PLAIN,40));
         if (inGame){
+            g.drawRoundRect(Window.getX(400), Window.getYNormal(890), 1080, 80,25,25);
             g.drawRoundRect(Window.getX(10), Window.getYNormal(890), 380, 80, 25, 25);
+            g.drawRoundRect(Window.getX(1060), Window.getYNormal(800), 420, 290,25,25);
+            g.drawRoundRect(Window.getX(220), Window.getYNormal(540), 830, 30,25,25);
             g.drawString("Waiting for players...", Window.getX(20), Window.getYNormal(900-53));
         }
         g.setFont(new Font("Arial",Font.PLAIN,20));
@@ -171,8 +174,12 @@ public class Player {
         g.drawString("The black card for this round is:", Window.getX(20), Window.getYNormal(900-80));
         g.setFont(new Font("Arial",Font.PLAIN,20));
         y-=40;
+        g.drawRoundRect(Window.getX(x), Window.getYNormal(y), 400, 60,25,25);
+        g.drawRoundRect(Window.getX(x), Window.getYNormal(y-70), 400, 60,25,25);
+        g.drawRoundRect(Window.getX(x), Window.getYNormal(y-140), 400, 60,25,25);
+        g.drawRoundRect(Window.getX(x), Window.getYNormal(y-210), 400, 60,25,25);
+        g.drawRoundRect(Window.getX(x), Window.getYNormal(y-280), 400, 60,25,25);
         for (Player obj : players){
-            g.drawRoundRect(Window.getX(x), Window.getYNormal(y), 400, 60,25,25);
             g.drawString(obj.name, Window.getX(x+7), Window.getYNormal(y-23));
             g.drawString(obj.score + " Awesome Points",Window.getX(x+7), Window.getYNormal(y-53));
             if (obj.czar){
@@ -245,11 +252,14 @@ public class Player {
     }
     
     public static void printHelp(Graphics2D g){
+        g.setColor(Color.black);
+        g.setFont(new Font("Arial",Font.BOLD,60));
+        g.drawString("Cards Against Humanity", Window.getX(575), Window.getYNormal(830));
         g.setFont(new Font("Arial",Font.PLAIN,30));
         Color selectedBlue = new Color(62, 126, 172);
         g.setColor(selectedBlue);
-        g.drawString("Help",Window.getX(20) , Window.getYNormal(360));
-        g.drawRoundRect(Window.getX(10), Window.getYNormal(400), 1880, 130, 25, 25);
+        g.drawString("Help",Window.getX(20) , Window.getYNormal(465));
+        g.drawRoundRect(Window.getX(10), Window.getYNormal(500), 1880, 230, 25, 25);
         g.setFont(new Font("Arial",Font.PLAIN,20));
         for(Player obj : players){
             if(turn == obj.number){
@@ -262,8 +272,7 @@ public class Player {
                     if(pickedSelected)
                         g.drawString("Click ''Confirm Selection'' when ready!", Window.getX(20), Window.getYNormal(325));
                     else{
-                        g.drawString("Read the black card with the white cards as answers and select the funniest one!", Window.getX(20), Window.getYNormal(325));
-                        g.drawString("Click to select.", Window.getX(20), Window.getYNormal(295));
+                        g.drawString("Read the black card with the white cards as answers and select the funniest one! Click to select.", Window.getX(20), Window.getYNormal(385));
                     }
                 }
                 else{
@@ -275,8 +284,7 @@ public class Player {
                     if(selected)
                         g.drawString("Click ''Confirm Selection'' when ready!", Window.getX(20), Window.getYNormal(325));
                     else{
-                        g.drawString("Read through your hand of white cards and select the one that answers the black card to", Window.getX(20), Window.getYNormal(325));
-                        g.drawString("make it the funniest! Hover over the white cards to view them, then click to select.", Window.getX(20), Window.getYNormal(295));
+                        g.drawString("Read through your hand of white cards and select the one that answers the black card the funniest! Hover over the white cards to view them. Click to select.", Window.getX(20), Window.getYNormal(385));
                     }
                 }
             }
