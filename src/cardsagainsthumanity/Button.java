@@ -94,9 +94,14 @@ public class Button {
     
     public static void confirmSelection(){
         for(Button obj : buttons){
-            if(obj.text == "Confirm Selection" && obj.mouseOver){
-                Player.removeCard();
-                Player.addCard();
+            if(obj.text == "Confirm Selection" && obj.mouseOver && Player.getCzar()){
+                Player.pickWinner();
+            }
+            else{
+                if(obj.text == "Confirm Selection" && obj.mouseOver){
+                    Player.removeCard();
+                    Player.addCard();
+                }
             }
         }
     }

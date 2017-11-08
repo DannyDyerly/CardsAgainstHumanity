@@ -149,6 +149,10 @@ public class White extends Card {
         player = _player;
     }
     
+    public Player getPlayer(){
+        return player;
+    }
+    
     public void setPicked(boolean _picked){
         picked = _picked;
     }

@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class Player {
     private static int numPlayers;
-    private static int cardCzar;
     private static int turn = 2;
     private boolean czar = false;
     private int numCards;
@@ -113,6 +112,19 @@ public class Player {
                 }
             }
         }
+    }
+    
+    public static White getSelectedCzar(){
+        for(Player obj : players){
+            if(turn == obj.number && obj.czar){
+                for(White ptr : picked){
+                    if(ptr.getSelected()){
+                        return ptr;
+                    }
+                }
+            }
+        }
+        return null;
     }
     
     public static White getSelected(){
@@ -288,6 +300,42 @@ public class Player {
                     }
                 }
             }
+        }
+    }
+    
+    public static boolean getCzar(){
+        for(Player obj : players){
+            if(turn == obj.number && obj.czar)
+                return true;
+        }
+        return false;
+    }
+    
+    public static void pickWinner(){
+        for(Player obj : players){
+            if(turn == obj.number && obj.czar){
+                if(getSelectedCzar() != null){
+                    White winner = getSelectedCzar();
+                    addPoint(winner.getPlayer());
+                    winner.setSelected(false);
+                    picked.clear();
+                    obj.czar = false;
+                    changeTurn();
+                    for(Player ptr : players){
+                        if(ptr.number == turn){
+                            ptr.czar = true;
+                        }
+                    }
+                    changeTurn();
+                }
+            }
+        }
+    }
+    
+    public static void addPoint(Player _player){
+        for(Player obj : players){
+            if(obj == _player)
+                obj.score++;
         }
     }
     
