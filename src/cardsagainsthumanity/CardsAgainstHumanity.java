@@ -18,10 +18,10 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
 
     Black card1 = Black.Create("_____. That's how I want to die.");
     Black card2 = Black.Create("_____. Pretty fun on a Sunday.");
-    White card51 = White.Create("Coding.");
-    White card52 = White.Create("Mr. Yee.");
+    White card51 = White.Create("Coding until your fingers are bleeding.");
+    White card52 = White.Create("Mr. Yee in a yoda costume.");
     White card53 = White.Create("A dragon named Harold.");
-    White card54 = White.Create("Danny Dyerly's forehead.");
+    White card54 = White.Create("...");
     White card55 = White.Create("Yoda Yee.");
     White card56 = White.Create("Yeesus.");
     White card57 = White.Create("Beating your grandma with a field hockey stick.");

@@ -100,14 +100,16 @@ public class Player {
     }
     
     public static void CheckSelectCzar(int xpos, int ypos){
-        for(Player obj : players){
-            if(turn == obj.number && obj.czar){
-                for(White ptr : picked){
-                    boolean success = ptr.checkSelect(xpos, ypos);
-                    if(success){
-                        for(White ref : picked){
-                            if(ref != ptr)
-                                ref.setSelected(false);
+        if(!nextRound){
+            for(Player obj : players){
+                if(turn == obj.number && obj.czar){
+                    for(White ptr : picked){
+                        boolean success = ptr.checkSelect(xpos, ypos);
+                        if(success){
+                            for(White ref : picked){
+                                if(ref != ptr)
+                                    ref.setSelected(false);
+                            }
                         }
                     }
                 }
@@ -215,7 +217,7 @@ public class Player {
                 g.drawString(obj.name.substring(0, 9), Window.getX(x+7), Window.getYNormal(y-23));
             g.drawString(obj.score + " Awesome Points",Window.getX(x+7), Window.getYNormal(y-53));
             if (obj.czar){
-                g.drawString("Selecting",Window.getX(x+250), Window.getYNormal(y-36));
+                g.drawString("Card Czar",Window.getX(x+250), Window.getYNormal(y-36));
             }
             y-=70;
         }
@@ -299,11 +301,14 @@ public class Player {
         g.drawString("Help",Window.getX(20) , Window.getYNormal(465));
         g.drawRoundRect(Window.getX(10), Window.getYNormal(500), 1880, 230, 25, 25);
         g.setFont(new Font("Arial",Font.PLAIN,20));
+        g.drawString("If your nameplate is highlighted in the scoreboard, it is your turn.",Window.getX(20) , Window.getYNormal(350));
+        g.drawString("White cards with no text can be selected to type whatever you want.",Window.getX(20) , Window.getYNormal(325));
+        g.drawString("Make sure the Card Czar is not looking at your screen and peeking at your cards!.",Window.getX(20) , Window.getYNormal(300));
         for(Player obj : players){
             if(turn == obj.number){
                 if(obj.czar){
                     if(nextRound){
-                        g.drawString("Click ''Next Round'' when ready!", Window.getX(20), Window.getYNormal(385));
+                        g.drawString("Click ''Next Round'' when ready!", Window.getX(20), Window.getYNormal(420));
                     }
                     else{
                         boolean pickedSelected = false;
@@ -312,23 +317,27 @@ public class Player {
                                 pickedSelected = true;
                         }
                         if(pickedSelected)
-                            g.drawString("Click ''Confirm Selection'' when ready!", Window.getX(20), Window.getYNormal(385));
+                            g.drawString("Click ''Confirm Selection'' when ready!", Window.getX(20), Window.getYNormal(420));
                         else{
-                            g.drawString("Read the black card with the white cards as answers and select the funniest one! Click to select.", Window.getX(20), Window.getYNormal(385));
+                            g.drawString("Read the black card with the white cards as answers and select the funniest one! Click to select.", Window.getX(20), Window.getYNormal(420));
                         }
                     }
                 }
                 else{
                     boolean selected = false;
+                    White selectedCard = null;
                     for(White ptr : obj.hand){
-                        if(ptr.getSelected())
+                        if(ptr.getSelected()){
                             selected = true;
+                            selectedCard = ptr;
+                        }
                     }
-                    if(selected)
-                        g.drawString("Click ''Confirm Selection'' when ready!", Window.getX(20), Window.getYNormal(385));
-                    else{
-                        g.drawString("Read through your hand of white cards and select the one that answers the black card the funniest! Hover over the white cards to view them. Click to select.", Window.getX(20), Window.getYNormal(385));
-                    }
+                    if(selected && selectedCard.getText().isEmpty())
+                        g.drawString("Click ''Confirm Selection'' when ready to type in whatever you want!", Window.getX(20), Window.getYNormal(420));
+                    else if(selected)
+                        g.drawString("Click ''Confirm Selection'' when ready!", Window.getX(20), Window.getYNormal(420));
+                    else
+                        g.drawString("Read through your hand of white cards and select the one that answers the black card the funniest! Hover over the white cards to view them. Click to select.", Window.getX(20), Window.getYNormal(420));
                 }
             }
         }
@@ -352,7 +361,7 @@ public class Player {
                 if(getSelectedCzar() != null){
                     White winner = getSelectedCzar();
                     addPoint(winner.getPlayer());
-                    winner.setSelected(false);
+                    //winner.setSelected(false);
                     nextRound = true;
                     return;
                 }
@@ -361,6 +370,7 @@ public class Player {
     }
     
     public static void nextRound(){
+        nextRound = false;
         picked.clear();
         for(Player obj : players){
             if(turn == obj.number && obj.czar)
