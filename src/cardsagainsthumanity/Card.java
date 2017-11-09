@@ -31,6 +31,10 @@ public class Card {
         return text;
     }
     
+    public void setText(String _text){
+        text = _text;
+    }
+    
     public void setUsed(boolean _used){
         used = _used;
     }

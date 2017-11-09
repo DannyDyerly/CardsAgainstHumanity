@@ -29,6 +29,11 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
     White card59 = White.Create("Buying a robot kit for your daughter.");
     White card60 = White.Create("Coming to the middle.");
     White card61 = White.Create("Coming to the middle... again.");
+    White card62 = White.Create("");
+    White card63 = White.Create("");
+    White card64 = White.Create("");
+    White card65 = White.Create("");
+    White card66 = White.Create("");
 
     static CardsAgainstHumanity frame;
     public static void main(String[] args) {

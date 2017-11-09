@@ -146,6 +146,8 @@ public class Player {
             if(turn == obj.number){
                 if(getSelected() != null){
                     White selected = getSelected();
+                    if(selected.getText() == "")
+                        selected.setText(White.blankCard());
                     addPickedCard(selected);
                     obj.hand.remove(selected);
                     selected.setSelected(false);

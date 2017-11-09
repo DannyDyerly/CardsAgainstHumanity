@@ -158,7 +158,7 @@ public class White extends Card {
         picked = _picked;
     }
     
-    public String blankCard(){
+    public static String blankCard(){
         String answer;
         answer = JOptionPane.showInputDialog(null, "What would you like your card to say?");
         String blankInput = answer;
