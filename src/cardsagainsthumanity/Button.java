@@ -15,7 +15,6 @@ public class Button {
     private int ypos;
     private boolean show;
     private boolean mouseOver;
-    static int name;
     private static ArrayList<Button> buttons = new ArrayList<Button>();
     
     Button(){
@@ -31,7 +30,6 @@ public class Button {
         ypos = _ypos;
         show = _show;
         mouseOver = false;
-        name = 1;
     }
     
     public static void Create(String _text, int _xpos, int _ypos, boolean _show, int _extra){
@@ -118,8 +116,10 @@ public class Button {
                     String newName = newName();
                     if(newName == null || newName.isEmpty())
                         return;
+                    while(!Player.checkUniqueName(newName)){
+                        newName = newUniqueName();
+                    }
                     Player.Create(newName);
-                    name++;
                 }
             }
         }
@@ -137,7 +137,13 @@ public class Button {
     
     public static String newName(){
         String answer;
-        answer = JOptionPane.showInputDialog(null, "What would you like your name to be? (20 chars max)");
+        answer = JOptionPane.showInputDialog(null, "What would you like your name to be? (9 chars max)");
+        return (answer);
+    }
+    
+    public static String newUniqueName(){
+        String answer;
+        answer = JOptionPane.showInputDialog(null, "Your name must be unique. (9 chars max)");
         return (answer);
     }
     

@@ -298,15 +298,20 @@ public class Player {
         for(Player obj : players){
             if(turn == obj.number){
                 if(obj.czar){
-                    boolean pickedSelected = false;
-                    for(White ptr : picked){
-                        if(ptr.getSelected())
-                            pickedSelected = true;
+                    if(nextRound){
+                        g.drawString("Click ''Next Round'' when ready!", Window.getX(20), Window.getYNormal(385));
                     }
-                    if(pickedSelected)
-                        g.drawString("Click ''Confirm Selection'' when ready!", Window.getX(20), Window.getYNormal(385));
                     else{
-                        g.drawString("Read the black card with the white cards as answers and select the funniest one! Click to select.", Window.getX(20), Window.getYNormal(385));
+                        boolean pickedSelected = false;
+                        for(White ptr : picked){
+                            if(ptr.getSelected())
+                                pickedSelected = true;
+                        }
+                        if(pickedSelected)
+                            g.drawString("Click ''Confirm Selection'' when ready!", Window.getX(20), Window.getYNormal(385));
+                        else{
+                            g.drawString("Read the black card with the white cards as answers and select the funniest one! Click to select.", Window.getX(20), Window.getYNormal(385));
+                        }
                     }
                 }
                 else{
@@ -371,6 +376,15 @@ public class Player {
             if(obj == _player)
                 obj.score++;
         }
+    }
+    
+    public static boolean checkUniqueName(String _name){
+        for(Player obj : players){
+            if(obj.name.equals(_name)){
+                return false;
+            }
+        }
+        return true;
     }
     
 }
