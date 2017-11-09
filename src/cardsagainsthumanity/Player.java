@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Player {
     private static int numPlayers;
     private static int turn = 2;
+    private static boolean nextRound = false;
     private boolean czar = false;
     private int numCards;
     private String name;
@@ -176,7 +177,6 @@ public class Player {
             g.drawRoundRect(Window.getX(400), Window.getYNormal(890), 1080, 80,25,25);
             g.drawRoundRect(Window.getX(10), Window.getYNormal(890), 380, 80, 25, 25);
             g.drawRoundRect(Window.getX(1060), Window.getYNormal(800), 420, 250,25,25);
-            g.drawRoundRect(Window.getX(1060), Window.getYNormal(540), 420, 30,25,25);
             g.drawString("Waiting for players...", Window.getX(20), Window.getYNormal(900-53));
         }
         g.setFont(new Font("Arial",Font.PLAIN,20));
@@ -244,10 +244,6 @@ public class Player {
     
     public static void changeTurn(){
         turn++;
-        for(Player obj : players){
-            if(turn == obj.number && obj.czar && turn < numPlayers)
-                turn++;
-        }
         if(turn > numPlayers){
             turn = 1;
         }
@@ -332,6 +328,10 @@ public class Player {
         return false;
     }
     
+    public static boolean getNextRound(){
+        return nextRound;
+    }
+    
     public static void pickWinner(){
         for(Player obj : players){
             if(turn == obj.number && obj.czar){
@@ -339,18 +339,26 @@ public class Player {
                     White winner = getSelectedCzar();
                     addPoint(winner.getPlayer());
                     winner.setSelected(false);
-                    picked.clear();
-                    obj.czar = false;
-                    changeTurn();
-                    for(Player ptr : players){
-                        if(ptr.number == turn){
-                            ptr.czar = true;
-                        }
-                    }
-                    changeTurn();
+                    nextRound = true;
+                    return;
                 }
             }
         }
+    }
+    
+    public static void nextRound(){
+        picked.clear();
+        for(Player obj : players){
+            if(turn == obj.number && obj.czar)
+                obj.czar = false;
+        }
+        changeTurn();
+        for(Player ptr : players){
+            if(ptr.number == turn){
+                ptr.czar = true;
+            }
+        }
+        changeTurn();
     }
     
     public static void addPoint(Player _player){

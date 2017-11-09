@@ -55,6 +55,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
                         Player.CheckSelect(xpos, ypos);
                         Player.CheckSelectCzar(xpos, ypos);
                         Button.confirmSelection();
+                        Button.nextRound();
                     }
  
                 }
@@ -205,8 +206,9 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
         Button.Create("Start", 920, 450, true, 0);
         Button.Create("Ok", 800, 250, false, 15);
         Button.Create("Cancel", 800, 550, false, 10);
-        Button.Create("Confirm Selection", 10,540, false, 5);
+        Button.Create("Confirm Selection", 10, 540, false, 5);
         Button.Create("Add Player", 892, 500, true, 7);
+        Button.Create("Next Round", 1060, 540, false, -300);
         
         White.resetCards();
         

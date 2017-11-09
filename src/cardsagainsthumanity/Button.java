@@ -52,6 +52,8 @@ public class Button {
                 g.setFont(new Font("Arial",Font.PLAIN,20));
                 if(obj.text == "Confirm Selection")
                     g.drawString("" + obj.text, Window.getX(obj.xpos+22), Window.getYNormal(obj.ypos-22));
+                else if(obj.text == "Next Round")
+                    g.drawString("" + obj.text, Window.getX(obj.xpos+160), Window.getYNormal(obj.ypos-22));
                 else
                     g.drawString("" + obj.text, Window.getX(obj.xpos+9), Window.getYNormal(obj.ypos-22));
             }
@@ -60,7 +62,7 @@ public class Button {
     
     public static void checkMouseOver(int _xpos, int _ypos){
         for(Button obj : buttons){
-            if(_xpos > Window.getX(obj.xpos) && _xpos < Window.getX(obj.xpos+obj.length+obj.extra) && _ypos > Window.getYNormal(obj.ypos) && _ypos < Window.getYNormal(obj.ypos-obj.height)){
+            if(_xpos > Window.getX(obj.xpos) && _xpos < Window.getX(obj.xpos+obj.length-obj.extra) && _ypos > Window.getYNormal(obj.ypos) && _ypos < Window.getYNormal(obj.ypos-obj.height)){
                 obj.mouseOver = true;
             }
             else
@@ -78,7 +80,7 @@ public class Button {
                             ref.show = false;
                     }
                     for(Button ptr : buttons){
-                        if(ptr.text == "Confirm Selection")
+                        if(ptr.text == "Confirm Selection" || ptr.text == "Next Round")
                             ptr.show = true;
                     }
                     for(int i=0; i<9; i++){
@@ -93,25 +95,37 @@ public class Button {
     }
     
     public static void confirmSelection(){
-        for(Button obj : buttons){
-            if(obj.text == "Confirm Selection" && obj.mouseOver && Player.getCzar()){
-                Player.pickWinner();
-            }
-            else{
-                if(obj.text == "Confirm Selection" && obj.mouseOver){
-                    Player.removeCard();
-                    Player.addCard();
+        if(!Player.getNextRound()){
+            for(Button obj : buttons){
+                if(obj.text == "Confirm Selection" && obj.mouseOver && Player.getCzar()){
+                    Player.pickWinner();
+                }
+                else{
+                    if(obj.text == "Confirm Selection" && obj.mouseOver){
+                        Player.removeCard();
+                        Player.addCard();
+                    }
                 }
             }
         }
     }
     
     public static void addPlayer(){
-        if (Player.getNumPlayers()<5){
+        if(Player.getNumPlayers()<5){
             for(Button obj : buttons){
                 if(obj.text == "Add Player" && obj.mouseOver){
                     Player.Create("Player "+name);
                     name++;
+                }
+            }
+        }
+    }
+    
+    public static void nextRound(){
+        for(Button obj : buttons){
+            if(obj.text == "Next Round" && obj.mouseOver){
+                if(Player.getNextRound()){
+                    Player.nextRound();
                 }
             }
         }
