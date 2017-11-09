@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class Button {
     private int length;
@@ -114,7 +115,10 @@ public class Button {
         if(Player.getNumPlayers()<5){
             for(Button obj : buttons){
                 if(obj.text == "Add Player" && obj.mouseOver){
-                    Player.Create("Player "+name);
+                    String newName = newName();
+                    if(newName == null || newName.isEmpty())
+                        return;
+                    Player.Create(newName);
                     name++;
                 }
             }
@@ -129,6 +133,12 @@ public class Button {
                 }
             }
         }
+    }
+    
+    public static String newName(){
+        String answer;
+        answer = JOptionPane.showInputDialog(null, "What would you like your name to be? (20 chars max)");
+        return (answer);
     }
     
 }

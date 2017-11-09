@@ -209,7 +209,10 @@ public class Player {
         g.drawRoundRect(Window.getX(x), Window.getYNormal(y-210), 400, 60,25,25);
         g.drawRoundRect(Window.getX(x), Window.getYNormal(y-280), 400, 60,25,25);
         for (Player obj : players){
-            g.drawString(obj.name, Window.getX(x+7), Window.getYNormal(y-23));
+            if(obj.name.length()<21)
+                g.drawString(obj.name.substring(0, obj.name.length()), Window.getX(x+7), Window.getYNormal(y-23));
+            else
+                g.drawString(obj.name.substring(0, 20), Window.getX(x+7), Window.getYNormal(y-23));
             g.drawString(obj.score + " Awesome Points",Window.getX(x+7), Window.getYNormal(y-53));
             if (obj.czar){
                 g.drawString("Selecting",Window.getX(x+250), Window.getYNormal(y-36));
