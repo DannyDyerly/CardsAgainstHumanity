@@ -130,6 +130,7 @@ public class Button {
             if(obj.text == "Next Round" && obj.mouseOver){
                 if(Player.getNextRound()){
                     Player.nextRound();
+                    Player.resetWin();
                 }
             }
         }

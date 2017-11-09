@@ -14,6 +14,8 @@ public class Player {
     private String name;
     private int number;
     private int score;
+    private static boolean dispWin=false;
+    private static String winName;
     private static ArrayList<Player> players = new ArrayList<Player>();
     private ArrayList<White> hand = new ArrayList<White>();
     private static ArrayList<White> picked = new ArrayList<White>();
@@ -172,6 +174,8 @@ public class Player {
     }
     
     public static void drawScores(Graphics2D g, boolean inGame){
+        if (dispWin)
+            dispWin(winName,g);
         int x = 1490;
         int y = 890;
         g.setColor(Color.BLACK);
@@ -274,10 +278,12 @@ public class Player {
             else{
                 obj.draw(g, x, y, false);
                 g.setFont(new Font("Arial",Font.PLAIN,20));
-                if (obj.getPlayer().name.length()<10)
-                g.drawString(""+obj.getPlayer().name, x+20, Window.getYNormal(518));
-                else
-                g.drawString(""+obj.getPlayer().name.subSequence(0, 9), x+20, Window.getYNormal(518));
+                if (nextRound){
+                    if (obj.getPlayer().name.length()<10)
+                    g.drawString(""+obj.getPlayer().name, x+20, Window.getYNormal(518));
+                    else
+                    g.drawString(""+obj.getPlayer().name.subSequence(0, 9), x+20, Window.getYNormal(518));
+                }
             }
             x += 210;
         }
@@ -387,8 +393,11 @@ public class Player {
     
     public static void addPoint(Player _player){
         for(Player obj : players){
-            if(obj == _player)
+            if(obj == _player){
                 obj.score++;
+                dispWin = true;
+                winName = obj.name;
+            }
         }
     }
     
@@ -399,6 +408,24 @@ public class Player {
             }
         }
         return true;
+    }
+    
+    public static void dispWin(String winner, Graphics2D g){
+        if (winner.isEmpty())
+            return;
+        else{
+            g.setFont(new Font("Arial",Font.PLAIN,30));
+            g.setColor(Color.black);
+            if (winner.length()<10)
+                g.drawString(winner + " is the", Window.getX(1070), Window.getYNormal(680));
+            else
+                g.drawString(""+winner.subSequence(0, 9)+" is the", Window.getX(1070), Window.getYNormal(680));     
+            g.drawString("winner of this round!", Window.getX(1070), Window.getYNormal(650));
+        }
+    }
+    
+    public static void resetWin(){
+        dispWin=false;
     }
     
 }
