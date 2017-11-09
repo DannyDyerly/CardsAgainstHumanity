@@ -3,6 +3,7 @@ package cardsagainsthumanity;
 import java.awt.Graphics2D;
 import java.awt.*;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class White extends Card {
     private Player player;
@@ -155,6 +156,13 @@ public class White extends Card {
     
     public void setPicked(boolean _picked){
         picked = _picked;
+    }
+    
+    public String blankCard(){
+        String answer;
+        answer = JOptionPane.showInputDialog(null, "What would you like your card to say?");
+        String blankInput = answer;
+        return answer;
     }
     
 }
