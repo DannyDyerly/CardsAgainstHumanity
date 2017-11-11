@@ -21,7 +21,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
     White card51 = White.Create("Coding until your fingers are bleeding.");
     White card52 = White.Create("Mr. Yee in a yoda costume.");
     White card53 = White.Create("A dragon named Harold.");
-    White card54 = White.Create("...");
+    White card54 = White.Create("''Yolo.''");
     White card55 = White.Create("Yoda Yee.");
     White card56 = White.Create("Yeesus.");
     White card57 = White.Create("Beating your grandma with a field hockey stick.");
@@ -34,6 +34,21 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
     White card64 = White.Create("");
     White card65 = White.Create("");
     White card66 = White.Create("");
+    White card67 = White.Create("");
+    White card68 = White.Create("");
+    White card69 = White.Create("");
+    White card70 = White.Create("");
+    White card71 = White.Create("");
+    White card72 = White.Create("Mr. Yee in a yoda costume.");
+    White card73 = White.Create("A dragon named Harold.");
+    White card74 = White.Create("...");
+    White card75 = White.Create("Yoda Yee.");
+    White card76 = White.Create("Yeesus.");
+    White card77 = White.Create("Beating your grandma with a field hockey stick.");
+//    White card78 = White.Create("Nothing. Life sucks.");
+//    White card79 = White.Create("Buying a robot kit for your daughter.");
+//    White card80 = White.Create("Coming to the middle.");
+    
 
     static CardsAgainstHumanity frame;
     public static void main(String[] args) {

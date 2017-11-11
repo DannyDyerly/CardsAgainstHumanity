@@ -103,8 +103,9 @@ public class White extends Card {
             if(obj.getUsed() == false)
                 allUsed = false;
         }
-        if(allUsed)
+        if(allUsed){
             return null;
+        }
         
         int white = (int)(Math.random()*whites.size());
         while(whites.get(white).getUsed() == true){
@@ -163,6 +164,19 @@ public class White extends Card {
         answer = JOptionPane.showInputDialog(null, "What would you like your card to say?");
         String blankInput = answer;
         return answer;
+    }
+    
+    public static Boolean getSomeSelected(){
+        for (White obj : whites){
+            if (obj.getSelected())
+                return true;
+        }
+        return false;
+    }
+    
+    public static void resetSelected(){
+        for (White ptr : whites)
+                    ptr.selected=false;
     }
     
 }

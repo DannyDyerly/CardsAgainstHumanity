@@ -414,8 +414,20 @@ public class Player {
         if (winner.isEmpty())
             return;
         else{
+            
             g.setFont(new Font("Arial",Font.PLAIN,30));
             g.setColor(Color.black);
+            for (Player obj : players){
+                if (obj.name.equals(winner)&&obj.score>=5){
+                    if (winner.length()<10)
+                g.drawString(winner + " is the", Window.getX(1070), Window.getYNormal(680));
+                else
+                    g.drawString(""+winner.subSequence(0, 9)+" is the", Window.getX(1070), Window.getYNormal(680));     
+                g.drawString("winner of this game!", Window.getX(1070), Window.getYNormal(650));
+                   return; 
+                }
+                
+            }
             if (winner.length()<10)
                 g.drawString(winner + " is the", Window.getX(1070), Window.getYNormal(680));
             else

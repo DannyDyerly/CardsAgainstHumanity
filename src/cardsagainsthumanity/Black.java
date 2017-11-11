@@ -6,6 +6,9 @@ import java.util.ArrayList;
 
 public class Black extends Card {
     private static int numBlackCards;
+    private static Boolean nextRoundTrue=true;
+    private static int black=0;
+    private static boolean start=true;
     protected static ArrayList<Black> blacks = new ArrayList<Black>();
     
     Black(String _text){
@@ -18,6 +21,7 @@ public class Black extends Card {
         blacks.add(obj);
         numBlackCards++;
         return(obj);
+        
     }
     
     public void draw(Graphics2D g){
@@ -85,20 +89,28 @@ public class Black extends Card {
     }
     
     public static Black getRandomBlack(){
-        
+        if (nextRoundTrue){
         boolean allUsed = true;
         for(Black obj : blacks){
             if(obj.getUsed() == false)
                 allUsed = false;
         }
-        if(allUsed)
-            return null;
+        if(allUsed){
+            for(Black obj : blacks){
+                obj.setUsed(false);
+            }
+        }
         
-        int black = (int)(Math.random()*blacks.size());
+        black = (int)(Math.random()*blacks.size());
         while(blacks.get(black).getUsed() == true){
             black = (int)(Math.random()*blacks.size());
-            if(blacks.get(black).getUsed() == false)
+            if(blacks.get(black).getUsed() == false){
+                
                 break;
+            }
+        }
+        blacks.get(black).setUsed(true);
+        nextRoundTrue=false;
         }
         return (blacks.get(black));
     }
@@ -107,6 +119,10 @@ public class Black extends Card {
         for (Black obj : blacks){
             obj.setUsed(false);
         }
+    }
+    
+    public static void setNextRoundTrue(){
+        nextRoundTrue=true;
     }
     
 }
