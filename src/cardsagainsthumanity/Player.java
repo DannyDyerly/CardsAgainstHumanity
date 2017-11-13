@@ -270,10 +270,9 @@ public class Player {
     public static void DrawPickedCards(Graphics2D g){
         int x = 220;
         int y = 800;
-        if(randomize){
+        if(randomize)
             randomize();
-            System.out.println("randomized");
-        }
+
         boolean hide = true;
         for(Player obj : players){
             if(turn == obj.number && obj.czar){
