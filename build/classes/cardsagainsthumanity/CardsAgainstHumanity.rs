@@ -1,3 +1,0 @@
-cardsagainsthumanity.Window
-cardsagainsthumanity.CardsAgainstHumanity
-cardsagainsthumanity.sound

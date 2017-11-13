@@ -112,7 +112,6 @@ public class Button {
             for(Button obj : buttons){
                 if(obj.text == "Confirm Selection" && obj.mouseOver && Player.getCzar()){
                     Player.pickWinner();
-                    White.resetSelected();
                 }
                 else{
                     if(obj.text == "Confirm Selection" && obj.mouseOver){

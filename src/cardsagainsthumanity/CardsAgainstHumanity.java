@@ -21,7 +21,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
     White card51 = White.Create("Coding until your fingers are bleeding.");
     White card52 = White.Create("Mr. Yee in a yoda costume.");
     White card53 = White.Create("A dragon named Harold.");
-    White card54 = White.Create("''Yolo.''");
+    White card54 = White.Create("Messing up your gitBash and losing 13 hours of code.");
     White card55 = White.Create("Yoda Yee.");
     White card56 = White.Create("Yeesus.");
     White card57 = White.Create("Beating your grandma with a field hockey stick.");
@@ -55,6 +55,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
         frame = new CardsAgainstHumanity();
         frame.setSize(Window.WINDOW_WIDTH, Window.WINDOW_HEIGHT);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 
@@ -162,18 +163,18 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
         
         if(inGame == false){
             g.setFont(new Font("Arial",Font.BOLD,100));
-            g.drawRoundRect(Window.getX(10), Window.getYNormal(880), 1200, 125, 25, 25);
-            g.drawString("Cards Against Humanity", Window.getX(25), Window.getYNormal(785));
+            g.drawRoundRect(Window.getX(10), Window.getYNormal(890), 1200, 125, 25, 25);
+            g.drawString("Cards Against Humanity", Window.getX(25), Window.getYNormal(795));
             
             g.setFont(new Font("Arial",Font.PLAIN,36));
-            g.drawRoundRect(Window.getX(10), Window.getYNormal(740), 525, 60, 25, 25);
-            g.drawString("Danny Dyerly & Pavel Demidov", Window.getX(25), Window.getYNormal(697));
+            g.drawRoundRect(Window.getX(10), Window.getYNormal(750), 525, 60, 25, 25);
+            g.drawString("Danny Dyerly & Pavel Demidov", Window.getX(25), Window.getYNormal(707));
             
             g.setFont(new Font("Arial",Font.PLAIN,24));
-            g.drawRoundRect(Window.getX(10), Window.getYNormal(665), 280, 105, 25, 25);
-            g.drawString("- play on one computer", Window.getX(25), Window.getYNormal(635));
-            g.drawString("- 3 to 5 players", Window.getX(25), Window.getYNormal(605));
-            g.drawString("- click start when ready", Window.getX(25), Window.getYNormal(575));
+            g.drawRoundRect(Window.getX(10), Window.getYNormal(675), 280, 105, 25, 25);
+            g.drawString("- play on one computer", Window.getX(25), Window.getYNormal(645));
+            g.drawString("- 3 to 5 players", Window.getX(25), Window.getYNormal(615));
+            g.drawString("- click start when ready", Window.getX(25), Window.getYNormal(585));
         }
         
         Button.DrawButtons(g);
