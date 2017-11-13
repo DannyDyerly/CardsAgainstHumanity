@@ -15,6 +15,7 @@ public class Button {
     private int ypos;
     private boolean show;
     private boolean mouseOver;
+    private static boolean newGame=false;
     private static ArrayList<Button> buttons = new ArrayList<Button>();
     
     Button(){
@@ -56,7 +57,15 @@ public class Button {
                 g.setFont(new Font("Arial",Font.PLAIN,20));
                 if(obj.text == "Confirm Selection")
                     g.drawString("" + obj.text, Window.getX(obj.xpos+22), Window.getYNormal(obj.ypos-22));
-                else if(obj.text == "Next Round")
+                else if(obj.text == "Next Round"&&!newGame){
+                    obj.text = "Next Round";
+                    g.drawString("" + obj.text, Window.getX(obj.xpos+160), Window.getYNormal(obj.ypos-22));
+                }
+                 else if(obj.text == "Next Round"&&newGame){
+                     obj.text= "New Game";
+                    g.drawString("" + obj.text, Window.getX(obj.xpos+160), Window.getYNormal(obj.ypos-22));
+            }
+                  else if(obj.text == "New Game")
                     g.drawString("" + obj.text, Window.getX(obj.xpos+160), Window.getYNormal(obj.ypos-22));
                 else
                     g.drawString("" + obj.text, Window.getX(obj.xpos+9), Window.getYNormal(obj.ypos-22));
@@ -141,6 +150,9 @@ public class Button {
                     Black.setNextRoundTrue();
                 }
             }
+            if(obj.text == "New Game" && obj.mouseOver){
+                
+            }
         }
     }
     
@@ -154,6 +166,10 @@ public class Button {
         String answer;
         answer = JOptionPane.showInputDialog(null, "Your name must be unique. (9 chars max)");
         return (answer);
+    }
+    
+    public static void setBoo(boolean va){
+        newGame = va;
     }
     
 }

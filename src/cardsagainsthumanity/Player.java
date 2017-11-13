@@ -429,6 +429,7 @@ public class Player {
             g.setColor(Color.black);
             for (Player obj : players){
                 if (obj.name.equals(winner)&&obj.score>=5){
+                    Button.setBoo(true);
                     if (winner.length()<10)
                 g.drawString(winner + " is the", Window.getX(1070), Window.getYNormal(680));
                 else
