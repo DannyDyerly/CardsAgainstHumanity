@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Player {
     private static int numPlayers;
@@ -14,11 +15,13 @@ public class Player {
     private String name;
     private int number;
     private int score;
-    private static boolean dispWin=false;
+    private static boolean randomize = false;
+    private static boolean dispWin = false;
     private static String winName;
     private static ArrayList<Player> players = new ArrayList<Player>();
     private ArrayList<White> hand = new ArrayList<White>();
     private static ArrayList<White> picked = new ArrayList<White>();
+    private static ArrayList<White> picked2 = new ArrayList<White>();
     
     Player(){
         
@@ -258,11 +261,19 @@ public class Player {
         if(turn > numPlayers){
             turn = 1;
         }
+        for(Player obj : players){
+            if(turn == obj.number && obj.czar)
+                randomize = true;
+        }
     }
     
     public static void DrawPickedCards(Graphics2D g){
         int x = 220;
         int y = 800;
+        if(randomize){
+            randomize();
+            System.out.println("randomized");
+        }
         boolean hide = true;
         for(Player obj : players){
             if(turn == obj.number && obj.czar){
@@ -437,7 +448,12 @@ public class Player {
     }
     
     public static void resetWin(){
-        dispWin=false;
+        dispWin = false;
+    }
+    
+    private static void randomize(){
+        Collections.shuffle(picked);
+        randomize = false;
     }
     
 }

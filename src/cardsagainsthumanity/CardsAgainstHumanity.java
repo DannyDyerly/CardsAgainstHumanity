@@ -116,9 +116,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
                 } else if (e.VK_D == e.getKeyCode()) {
 
                 } else if (e.VK_SPACE == e.getKeyCode()) {   
-                    if(inGame){
-                        Player.DrawCards();
-                    }
+                    
                 }
                 repaint();
             }
