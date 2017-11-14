@@ -188,7 +188,17 @@ public class Player {
             g.drawRoundRect(Window.getX(400), Window.getYNormal(890), 1080, 80,25,25);
             g.drawRoundRect(Window.getX(10), Window.getYNormal(890), 380, 80, 25, 25);
             g.drawRoundRect(Window.getX(1060), Window.getYNormal(800), 420, 250,25,25);
-            g.drawString("Waiting for players...", Window.getX(20), Window.getYNormal(900-53));
+            boolean asdf = false;
+            for(Player obj : players){
+                if(obj.number == turn && obj.czar){
+                    asdf = true;
+                }
+            }
+            if(asdf){
+                g.drawString("Selecting winner...", Window.getX(20), Window.getYNormal(900-53));
+            }
+            else
+                g.drawString("Waiting for players...", Window.getX(20), Window.getYNormal(900-53));
         }
         g.setFont(new Font("Arial",Font.PLAIN,20));
         g.drawString("Scoreboard", Window.getX(x+7), Window.getYNormal(y-23));
