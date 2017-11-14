@@ -29,8 +29,10 @@ public class White extends Card {
     
     public void draw(Graphics2D g, int x, int y, boolean hidden){
         Color selectedBlue = new Color(62, 126, 172);
-        if(selected)
+        if(selected){
             g.setColor(selectedBlue);
+            g.fillRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()-260), length, 30, 25, 25);
+        }
         else
             g.setColor(Color.white);
 

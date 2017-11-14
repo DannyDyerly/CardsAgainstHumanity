@@ -223,7 +223,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
         
         boolean inGame = false;
         
-        Button.Create("Start", 920, 450, true, 0);
+        Button.Create("Start", 920, 500, true, 0);
         Button.Create("Confirm Selection", 10, 540, false, 5);
         Button.Create("Add Player", 1560, 500, true, 7);
         Button.Create("Next Round", 1060, 540, false, -300);

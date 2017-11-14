@@ -44,7 +44,7 @@ public class Button {
                 Color mouseOverBlue = new Color(62, 126, 172);
                 if(obj.mouseOver&&obj.text == "Next Round"&&!Player.getNextRound())
                     g.setColor(Color.white);
-                else if(obj.mouseOver&&obj.text == "Confirm Selection"&&!White.getSomeSelected()||(White.getSomeSelected()&&Player.getNextRound())){
+                else if(obj.mouseOver&&obj.text == "Confirm Selection"&&(!White.getSomeSelected()||(White.getSomeSelected()&&Player.getNextRound()))){
                     g.setColor(Color.white);
                 }
                 else if(obj.mouseOver)
@@ -158,6 +158,7 @@ public class Button {
                     Player.nextRound();
                     Player.resetWin();
                     Black.setNextRoundTrue();
+                    White.resetSelected();
                 }
             }
             if(obj.text == "New Game" && obj.mouseOver){
