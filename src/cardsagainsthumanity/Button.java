@@ -89,7 +89,7 @@ public class Button {
                 if(obj.text == "Start" && obj.mouseOver && Player.getNumPlayers() >= 3){
                     obj.show = false;
                     for(Button ref : buttons){
-                        if(ref.text == "Add Player")
+                        if(ref.text == "Add Player" || ref.text == "Remove Player")
                             ref.show = false;
                     }
                     for(Button ptr : buttons){
@@ -99,6 +99,7 @@ public class Button {
                     for(int i=0; i<9; i++){
                         Player.DrawCards();
                     }
+                    Player.playerCards();
                     return true;
                 }
             }
@@ -135,6 +136,16 @@ public class Button {
                         newName = newUniqueName();
                     }
                     Player.Create(newName);
+                }
+            }
+        }
+    }
+    
+    public static void removePlayer(){
+        if(Player.getNumPlayers()>0){
+            for(Button obj : buttons){
+                if(obj.text == "Remove Player" && obj.mouseOver){
+                    Player.remove();
                 }
             }
         }

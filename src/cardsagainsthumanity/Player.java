@@ -318,8 +318,6 @@ public class Player {
         g.drawRoundRect(Window.getX(10), Window.getYNormal(500), 1880, 230, 25, 25);
         g.setFont(new Font("Arial",Font.PLAIN,20));
         g.drawString("If your nameplate is highlighted in the scoreboard, it is your turn.",Window.getX(20) , Window.getYNormal(350));
-        g.drawString("White cards with no text can be selected to type whatever you want.",Window.getX(20) , Window.getYNormal(325));
-        g.drawString("Make sure the Card Czar is not looking at your screen and peeking at your cards!.",Window.getX(20) , Window.getYNormal(300));
         for(Player obj : players){
             if(turn == obj.number){
                 if(obj.czar){
@@ -340,6 +338,8 @@ public class Player {
                     }
                 }
                 else{
+                    g.drawString("White cards with no text can be selected to type whatever you want.",Window.getX(20) , Window.getYNormal(325));
+                    g.drawString("Make sure no other players are peeking while it's your turn!.",Window.getX(20) , Window.getYNormal(300));
                     boolean selected = false;
                     White selectedCard = null;
                     for(White ptr : obj.hand){
@@ -454,6 +454,33 @@ public class Player {
     private static void randomize(){
         Collections.shuffle(picked);
         randomize = false;
+    }
+    
+    public static void playerCards(){
+        int p = (int)(Math.random()*numPlayers);
+        Black card50 = Black.Create(players.get(p).name + " enjoys _____ when he/she gets home from school.");
+        p = (int)(Math.random()*numPlayers);
+        Black card49 = Black.Create("We all know that " + players.get(p).name + " loves _____. It's not a secret.");
+        p = (int)(Math.random()*numPlayers);
+        Black card48 = Black.Create(players.get(p).name + " spent the weekend _____.");
+        p = (int)(Math.random()*numPlayers);
+        int p2 = 0;
+        while(p2 == p){
+            p2 = (int)(Math.random()*numPlayers);
+        }
+        Black card47 = Black.Create("I think " + players.get(p).name + " likes _____ with " + players.get(p2).name);
+        p = (int)(Math.random()*numPlayers);
+        Black card46 = Black.Create(players.get(p).name + " just can't live without _____.");
+    }
+    
+    public static void remove(){
+        for(Player obj : players){
+            if(obj.number == numPlayers){
+                players.remove(obj);
+                numPlayers--;
+                return;
+            }
+        }
     }
     
 }

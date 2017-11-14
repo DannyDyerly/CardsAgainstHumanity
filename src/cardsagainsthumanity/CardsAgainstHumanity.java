@@ -71,6 +71,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
                     
                     inGame = Button.checkStart(inGame);
                     Button.addPlayer();
+                    Button.removePlayer();
                     
                     if(inGame){
                         Player.CheckSelect(xpos, ypos);
@@ -223,11 +224,10 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
         boolean inGame = false;
         
         Button.Create("Start", 920, 450, true, 0);
-        Button.Create("Ok", 800, 250, false, 15);
-        Button.Create("Cancel", 800, 550, false, 10);
         Button.Create("Confirm Selection", 10, 540, false, 5);
-        Button.Create("Add Player", 892, 500, true, 7);
+        Button.Create("Add Player", 1560, 500, true, 7);
         Button.Create("Next Round", 1060, 540, false, -300);
+        Button.Create("Remove Player", 1680, 500, true, 7);
         
         White.resetCards();
         
