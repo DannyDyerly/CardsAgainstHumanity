@@ -182,6 +182,8 @@ public class Button {
                     White.resetPicked();
                     White.resetSelected();
                     White.resetCards();
+                    Black.resetCards();
+                    Black.setNextRoundTrue();
                     Player.reset();
             }
         }
