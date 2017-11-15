@@ -195,7 +195,19 @@ public class Player {
                 }
             }
             if(asdf){
-                g.drawString("Selecting winner...", Window.getX(20), Window.getYNormal(900-53));
+                if (nextRound){
+                    boolean asdf1 = false;
+                    for (Player obj : players){
+                        if (obj.score>=5)
+                            asdf1 = true;
+                    }
+                    if (asdf1)
+                        g.drawString("Waiting for game...", Window.getX(20), Window.getYNormal(900-53));
+                    else
+                        g.drawString("Waiting for round...", Window.getX(20), Window.getYNormal(900-53));
+                }
+                else
+                    g.drawString("Selecting winner...", Window.getX(20), Window.getYNormal(900-53));
             }
             else
                 g.drawString("Waiting for players...", Window.getX(20), Window.getYNormal(900-53));
@@ -478,9 +490,26 @@ public class Player {
         while(p2 == p){
             p2 = (int)(Math.random()*numPlayers);
         }
-        Black card47 = Black.Create("I think " + players.get(p).name + " likes _____ with " + players.get(p2).name);
+        Black card47 = Black.Create("I think " + players.get(p).name + " likes _____ with " + players.get(p2).name+".");
         p = (int)(Math.random()*numPlayers);
         Black card46 = Black.Create(players.get(p).name + " just can't live without _____.");
+        p = (int)(Math.random()*numPlayers);
+        Black card45 = Black.Create("What the heck? This tastes like " + players.get(p).name + "'s _____.");
+        p = (int)(Math.random()*numPlayers); 
+        Black card44 = Black.Create("" + players.get(p).name + " is the god of _____.");
+        p = (int)(Math.random()*numPlayers);
+        while(p2 == p){
+            p2 = (int)(Math.random()*numPlayers);
+        }
+        Black card43 = Black.Create("" + players.get(p).name + " softly rubs _____ against " + players.get(p2).name+"'s face at night.");
+        p = (int)(Math.random()*numPlayers);
+        while(p2 == p){
+            p2 = (int)(Math.random()*numPlayers);
+        }
+        Black card42 = Black.Create("On Christmas, " + players.get(p).name + " gave " + players.get(p2).name+" a _____.");
+        p = (int)(Math.random()*numPlayers);
+        Black card41 = Black.Create("Halloween sucked for the _____ that " + players.get(p).name + " killed.");
+        p = (int)(Math.random()*numPlayers);
     }
     
     public static void remove(){

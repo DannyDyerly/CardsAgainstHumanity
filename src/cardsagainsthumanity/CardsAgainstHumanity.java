@@ -18,6 +18,45 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
 
     Black card1 = Black.Create("_____. That's how I want to die.");
     Black card2 = Black.Create("_____. Pretty fun on a Sunday.");
+    Black card3 = Black.Create("_____. That's how I want to die.");
+    Black card4 = Black.Create("_____. Pretty fun on a Sunday.");
+    Black card5 = Black.Create("_____. That's how I want to die.");
+    Black card6 = Black.Create("_____. Pretty fun on a Sunday.");
+    Black card7 = Black.Create("_____. That's how I want to die.");
+    Black card8 = Black.Create("_____. Pretty fun on a Sunday.");
+    Black card9 = Black.Create("_____. That's how I want to die.");
+    Black card10 = Black.Create("_____. Pretty fun on a Sunday.");
+    Black card11 = Black.Create("_____. That's how I want to die.");
+    Black card12 = Black.Create("_____. Pretty fun on a Sunday.");
+    Black card13 = Black.Create("_____. That's how I want to die.");
+    Black card14 = Black.Create("_____. Pretty fun on a Sunday.");
+    Black card15 = Black.Create("_____. That's how I want to die.");
+    Black card16 = Black.Create("_____. Pretty fun on a Sunday.");
+    Black card17 = Black.Create("_____. That's how I want to die.");
+    Black card18 = Black.Create("_____. Pretty fun on a Sunday.");
+    Black card19 = Black.Create("_____. That's how I want to die.");
+    Black card20 = Black.Create("_____. Pretty fun on a Sunday.");
+    Black card21 = Black.Create("_____. That's how I want to die.");
+    Black card22 = Black.Create("_____. Pretty fun on a Sunday.");
+    Black card23 = Black.Create("_____. That's how I want to die.");
+    Black card24 = Black.Create("_____. Pretty fun on a Sunday.");
+    Black card25 = Black.Create("_____. That's how I want to die.");
+    Black card26 = Black.Create("_____. Pretty fun on a Sunday.");
+    Black card27 = Black.Create("_____. That's how I want to die.");
+    Black card28 = Black.Create("_____. Pretty fun on a Sunday.");
+    Black card29 = Black.Create("_____. That's how I want to die.");
+    Black card30 = Black.Create("_____. Pretty fun on a Sunday.");
+    Black card31 = Black.Create("_____. That's how I want to die.");
+    Black card32 = Black.Create("_____. Pretty fun on a Sunday.");
+    Black card33 = Black.Create("_____. That's how I want to die.");
+    Black card34 = Black.Create("_____. Pretty fun on a Sunday.");
+    Black card35 = Black.Create("_____. That's how I want to die.");
+    Black card36 = Black.Create("_____. Pretty fun on a Sunday.");
+    Black card37 = Black.Create("_____. That's how I want to die.");
+    Black card38 = Black.Create("_____. Pretty fun on a Sunday.");
+    Black card39 = Black.Create("_____. That's how I want to die.");
+    Black card40 = Black.Create("_____. Pretty fun on a Sunday.");
+    
     White card51 = White.Create("Coding until your fingers are bleeding.");
     White card52 = White.Create("Mr. Yee in a yoda costume.");
     White card53 = White.Create("A dragon named Harold.");
@@ -39,15 +78,6 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
     White card69 = White.Create("");
     White card70 = White.Create("");
     White card71 = White.Create("");
-    White card72 = White.Create("Mr. Yee in a yoda costume.");
-    White card73 = White.Create("A dragon named Harold.");
-    White card74 = White.Create("...");
-    White card75 = White.Create("Yoda Yee.");
-    White card76 = White.Create("Yeesus.");
-    White card77 = White.Create("Beating your grandma with a field hockey stick.");
-//    White card78 = White.Create("Nothing. Life sucks.");
-//    White card79 = White.Create("Buying a robot kit for your daughter.");
-//    White card80 = White.Create("Coming to the middle.");
     
 
     static CardsAgainstHumanity frame;
@@ -172,10 +202,12 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
             g.drawString("Danny Dyerly & Pavel Demidov", Window.getX(25), Window.getYNormal(707));
             
             g.setFont(new Font("Arial",Font.PLAIN,24));
-            g.drawRoundRect(Window.getX(10), Window.getYNormal(675), 280, 105, 25, 25);
-            g.drawString("- play on one computer", Window.getX(25), Window.getYNormal(645));
-            g.drawString("- 3 to 5 players", Window.getX(25), Window.getYNormal(615));
-            g.drawString("- click start when ready", Window.getX(25), Window.getYNormal(585));
+            g.drawRoundRect(Window.getX(10), Window.getYNormal(675), 280, 165, 25, 25);
+            g.drawString("* Play on one computer", Window.getX(25), Window.getYNormal(645));
+            g.drawString("* 3 to 5 players", Window.getX(25), Window.getYNormal(615));
+            g.drawString("- add or remove players", Window.getX(25), Window.getYNormal(585));
+            g.drawString("- input your real names", Window.getX(25), Window.getYNormal(555));
+            g.drawString("- click start when ready", Window.getX(25), Window.getYNormal(525));
         }
         
         Button.DrawButtons(g);

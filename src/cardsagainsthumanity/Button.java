@@ -75,7 +75,7 @@ public class Button {
     
     public static void checkMouseOver(int _xpos, int _ypos){
         for(Button obj : buttons){
-            if(_xpos > Window.getX(obj.xpos) && _xpos < Window.getX(obj.xpos+obj.length-obj.extra) && _ypos > Window.getYNormal(obj.ypos) && _ypos < Window.getYNormal(obj.ypos-obj.height)){
+            if(_xpos > Window.getX(obj.xpos) && _xpos < Window.getX(obj.xpos+obj.length) && _ypos > Window.getYNormal(obj.ypos) && _ypos < Window.getYNormal(obj.ypos-obj.height)){
                 obj.mouseOver = true;
             }
             else
@@ -160,9 +160,6 @@ public class Button {
                     Black.setNextRoundTrue();
                     White.resetSelected();
                 }
-            }
-            if(obj.text == "New Game" && obj.mouseOver){
-                
             }
         }
     }
