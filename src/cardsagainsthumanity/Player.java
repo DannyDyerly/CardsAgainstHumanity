@@ -155,6 +155,10 @@ public class Player {
                     White selected = getSelected();
                     if(selected.getText() == "")
                         selected.setText(White.blankCard());
+                    if(selected.getText() == null){
+                        selected.setText("");
+                        return;
+                    }
                     addPickedCard(selected);
                     obj.hand.remove(selected);
                     selected.setSelected(false);
@@ -506,10 +510,19 @@ public class Player {
         while(p2 == p){
             p2 = (int)(Math.random()*numPlayers);
         }
-        Black card42 = Black.Create("On Christmas, " + players.get(p).name + " gave " + players.get(p2).name+" a _____.");
+        Black card42 = Black.Create("On Christmas, " + players.get(p).name + " gave " + players.get(p2).name+" _____.");
         p = (int)(Math.random()*numPlayers);
-        Black card41 = Black.Create("Halloween sucked for the _____ that " + players.get(p).name + " killed.");
+        while(p2 == p){
+            p2 = (int)(Math.random()*numPlayers);
+        }
+        Black card41 = Black.Create(players.get(p).name + " and " + players.get(p2).name + " are secretly planning on _____.");
         p = (int)(Math.random()*numPlayers);
+        Black card40 = Black.Create("My name is " + players.get(p).name + ", but my family calls me _____.");
+        p = (int)(Math.random()*numPlayers);
+        while(p2 == p){
+            p2 = (int)(Math.random()*numPlayers);
+        }
+        Black card39 = Black.Create(players.get(p).name + " and " + players.get(p2).name + " were _____ last night.");
     }
     
     public static void remove(){

@@ -189,7 +189,7 @@ public class Button {
     
     public static String newName(){
         String answer;
-        answer = JOptionPane.showInputDialog(null, "What would you like your name to be? (9 chars max)");
+        answer = JOptionPane.showInputDialog(null, "What is your name? (9 chars max)");
         return (answer);
     }
     

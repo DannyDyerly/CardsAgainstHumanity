@@ -24,26 +24,26 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
     Black card6 = Black.Create("I can't believe you like _____ too! We should hang out.");
     Black card7 = Black.Create("I had to write a 4000 word essay about _____.");
     Black card8 = Black.Create("I was into _____ before it was cool.");
-    Black card9 = Black.Create("");
-    Black card10 = Black.Create("_____. Pretty fun on a Sunday.");
-    Black card11 = Black.Create("_____. That's how I want to die.");
-    Black card12 = Black.Create("_____. Pretty fun on a Sunday.");
-    Black card13 = Black.Create("_____. That's how I want to die.");
-    Black card14 = Black.Create("_____. Pretty fun on a Sunday.");
-    Black card15 = Black.Create("_____. That's how I want to die.");
-    Black card16 = Black.Create("_____. Pretty fun on a Sunday.");
-    Black card17 = Black.Create("_____. That's how I want to die.");
-    Black card18 = Black.Create("_____. Pretty fun on a Sunday.");
-    Black card19 = Black.Create("_____. That's how I want to die.");
-    Black card20 = Black.Create("_____. Pretty fun on a Sunday.");
-    Black card21 = Black.Create("_____. That's how I want to die.");
-    Black card22 = Black.Create("_____. Pretty fun on a Sunday.");
-    Black card23 = Black.Create("_____. That's how I want to die.");
-    Black card24 = Black.Create("_____. Pretty fun on a Sunday.");
-    Black card25 = Black.Create("_____. That's how I want to die.");
-    Black card26 = Black.Create("_____. Pretty fun on a Sunday.");
-    Black card27 = Black.Create("_____. That's how I want to die.");
-    Black card28 = Black.Create("_____. Pretty fun on a Sunday.");
+    Black card9 = Black.Create("_____. The best thing since sliced bread.");
+    Black card10 = Black.Create("I hope grandma doesn't ask me to explain _____ again.");
+    Black card11 = Black.Create("Steve can carry 64 stacks of _____.");
+    Black card12 = Black.Create("I broke six ribs while _____.");
+    Black card13 = Black.Create("Grandma's losing it. She got me _____ for my birthday.");
+    Black card14 = Black.Create("There was a riot at the _____ TED Talk (for obvious reasons).");
+    Black card15 = Black.Create("Hurry, call the vet! The dog ate _____!");
+    Black card16 = Black.Create("Yeah, turns out that microwaving _____ was a bad idea.");
+    Black card17 = Black.Create("When the coffee machine broke, we started using _____ as an alternative.");
+    Black card18 = Black.Create("When we went to the zoo the penguins were _____.");
+    Black card19 = Black.Create("_____? There's an app for that.");
+    Black card20 = Black.Create("Why can't I sleep at night?");
+    Black card21 = Black.Create("BILLY MAYS HERE FOR _____.");
+    Black card22 = Black.Create("What don't you want to find in your Chinese food?");
+    Black card23 = Black.Create("Studies show that lab rats navigate mazes 50% faster after being exposed to _____.");
+    Black card24 = Black.Create("What never fails to liven up the party?");
+    Black card25 = Black.Create("Who ate my chicken nuggets?");
+    Black card26 = Black.Create("I don't know what weapons World War III will be fought with, but World War IV will be fought with _____.");
+    Black card27 = Black.Create("What are my parents hiding from me?");
+    Black card28 = Black.Create("What's that sound?");
     Black card29 = Black.Create("_____. That's how I want to die.");
     Black card30 = Black.Create("_____. Pretty fun on a Sunday.");
     Black card31 = Black.Create("_____. That's how I want to die.");
@@ -54,8 +54,6 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
     Black card36 = Black.Create("_____. Pretty fun on a Sunday.");
     Black card37 = Black.Create("_____. That's how I want to die.");
     Black card38 = Black.Create("_____. Pretty fun on a Sunday.");
-    Black card39 = Black.Create("_____. That's how I want to die.");
-    Black card40 = Black.Create("_____. Pretty fun on a Sunday.");
     
     White card51 = White.Create("Coding until your fingers are bleeding.");
     White card52 = White.Create("Mr. Yee in a yoda costume.");
@@ -68,16 +66,34 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
     White card59 = White.Create("Buying a robot kit for your daughter.");
     White card60 = White.Create("Coming to the middle.");
     White card61 = White.Create("Coming to the middle... again.");
-    White card62 = White.Create("");
-    White card63 = White.Create("");
-    White card64 = White.Create("");
-    White card65 = White.Create("");
-    White card66 = White.Create("");
-    White card67 = White.Create("");
-    White card68 = White.Create("");
-    White card69 = White.Create("");
-    White card70 = White.Create("");
-    White card71 = White.Create("");
+    White card62 = White.Create("Chewing a grapefruit-sized scab off a hobo's back.");
+    White card63 = White.Create("TheLengend27.");
+    White card64 = White.Create("A sad fat dragon with no friends.");
+    White card65 = White.Create("White people.");
+    White card66 = White.Create("All-you-can-eat shrimp for $4.99.");
+    White card67 = White.Create("Powerful thighs.");
+    White card68 = White.Create("Multiple stab wounds.");
+    White card69 = White.Create("The Make-A-Wish Foundation.");
+    White card70 = White.Create("Hot Pockets.");
+    White card71 = White.Create("The Kool-Aid man.");
+    White card72 = White.Create("Switching to Geico.");
+    White card73 = White.Create("Friends who eat all your snacks.");
+    White card74 = White.Create("");
+    White card75 = White.Create("");
+    White card76 = White.Create("");
+    White card77 = White.Create("");
+    White card78 = White.Create("");
+    White card79 = White.Create("");
+    White card80 = White.Create("");
+    White card81 = White.Create("");
+    White card82 = White.Create("");
+    White card83 = White.Create("");
+    White card84 = White.Create("");
+    White card85 = White.Create("");
+    White card86 = White.Create("");
+    White card87 = White.Create("");
+    White card88 = White.Create("");
+    White card89 = White.Create("");
     
 
     static CardsAgainstHumanity frame;
@@ -148,7 +164,8 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
                 } else if (e.VK_D == e.getKeyCode()) {
 
                 } else if (e.VK_SPACE == e.getKeyCode()) {   
-                    
+                    Black.setNextRoundTrue();
+                    Black.getRandomBlack();
                 }
                 repaint();
             }
@@ -208,6 +225,13 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
             g.drawString("- add or remove players", Window.getX(25), Window.getYNormal(585));
             g.drawString("- input your real names", Window.getX(25), Window.getYNormal(555));
             g.drawString("- click start when ready", Window.getX(25), Window.getYNormal(525));
+            
+            g.drawRoundRect(Window.getX(10), Window.getYNormal(175), 800, 165, 25, 25);
+            g.drawString("Instructions:", Window.getX(25), Window.getYNormal(145));
+            g.drawString("A black card is drawn containing a sentence with blanks or a question", Window.getX(25), Window.getYNormal(115));
+            g.drawString("Each player answers the black card with their funniest white card", Window.getX(25), Window.getYNormal(85));
+            g.drawString("The Card Czar decides which is the funniest and that player gets a point", Window.getX(25), Window.getYNormal(55));
+            g.drawString("Read the ''Help'' box in game for more details", Window.getX(25), Window.getYNormal(25));
         }
         
         Button.DrawButtons(g);

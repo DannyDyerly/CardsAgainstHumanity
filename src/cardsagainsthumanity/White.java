@@ -40,10 +40,15 @@ public class White extends Card {
         setYpos(y);
         g.fillRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()), length, height, 25, 25);
         g.setColor(Color.black);
-        g.drawRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()), length, height, 25, 25);
+        g.drawRoundRect(Window.getX(getXpos()), Window.getYNormal(getYpos()), length, height, 25, 25);   
         
         g.setFont(new Font("Arial",Font.PLAIN,20));
         if(hidden == false || mouseOver || selected){
+            if(getText().isEmpty()){
+                g.drawString("_____",Window.getX(getXpos()+10),Window.getYNormal(getYpos()-30));
+                
+            }
+            
             if (getText().length()>17){
                 g.drawString("" + getText().subSequence(0, getWords(18)),Window.getX(getXpos()+10),Window.getYNormal(getYpos()-30));
                 if (getText().length()>34){
