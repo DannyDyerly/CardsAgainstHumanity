@@ -161,6 +161,29 @@ public class Button {
                     White.resetSelected();
                 }
             }
+            else if(obj.text == "New Game" && obj.mouseOver){
+                CardsAgainstHumanity.inGame=false;
+                newGame=false;
+                    for(Button yoi : buttons){
+                        if(yoi.text == "Start")
+                            yoi.show = true;
+                        if(obj.text == "New Game"&&!newGame)
+                            obj.text = "Next Round";
+                    }
+                    for(Button ref : buttons){
+                        if(ref.text == "Add Player" || ref.text == "Remove Player")
+                            ref.show = true;
+                    }
+                    for(Button ptr : buttons){
+                        if(ptr.text == "Confirm Selection" || ptr.text == "Next Round")
+                            ptr.show = false;
+                    }
+                    Player.resetCzar();
+                    White.resetPicked();
+                    White.resetSelected();
+                    White.resetCards();
+                    Player.reset();
+            }
         }
     }
     

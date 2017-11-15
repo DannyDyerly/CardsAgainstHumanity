@@ -181,4 +181,9 @@ public class White extends Card {
                     ptr.selected=false;
     }
     
+    public static void resetPicked(){
+        for (White ptr : whites)
+                    ptr.picked=false;
+    }
+    
 }

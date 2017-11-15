@@ -14,7 +14,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
     Image image;
     Graphics2D g;
     
-    boolean inGame = false;
+    public static boolean inGame = false;
 
     Black card1 = Black.Create("_____. That's how I want to die.");
     Black card2 = Black.Create("_____. Pretty fun on a Sunday.");

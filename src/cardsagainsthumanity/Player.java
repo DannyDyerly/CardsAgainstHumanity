@@ -522,4 +522,23 @@ public class Player {
         }
     }
     
+    public static void reset(){
+        for (Player obj : players){
+                obj.score=0;
+        }
+        nextRound =false;
+        dispWin=false;
+        picked.clear();
+    }
+    
+    public static void resetCzar(){
+        for (Player obj : players){
+            if (obj.czar==true)
+                obj.czar=false;
+            if (obj.number==1)
+                obj.czar=true;
+        }
+        turn=2;
+    }
+    
 }
