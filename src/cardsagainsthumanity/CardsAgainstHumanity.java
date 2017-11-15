@@ -18,13 +18,13 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
 
     Black card1 = Black.Create("_____. That's how I want to die.");
     Black card2 = Black.Create("_____. Pretty fun on a Sunday.");
-    Black card3 = Black.Create("_____. That's how I want to die.");
-    Black card4 = Black.Create("_____. Pretty fun on a Sunday.");
-    Black card5 = Black.Create("_____. That's how I want to die.");
-    Black card6 = Black.Create("_____. Pretty fun on a Sunday.");
-    Black card7 = Black.Create("_____. That's how I want to die.");
-    Black card8 = Black.Create("_____. Pretty fun on a Sunday.");
-    Black card9 = Black.Create("_____. That's how I want to die.");
+    Black card3 = Black.Create("If I met a genie, I would just wish for _____ three times.");
+    Black card4 = Black.Create("4 out of 5 dentists recommend _____.");
+    Black card5 = Black.Create("Ask your doctor if _____ is right for you.");
+    Black card6 = Black.Create("I can't believe you like _____ too! We should hang out.");
+    Black card7 = Black.Create("I had to write a 4000 word essay about _____.");
+    Black card8 = Black.Create("I was into _____ before it was cool.");
+    Black card9 = Black.Create("");
     Black card10 = Black.Create("_____. Pretty fun on a Sunday.");
     Black card11 = Black.Create("_____. That's how I want to die.");
     Black card12 = Black.Create("_____. Pretty fun on a Sunday.");
