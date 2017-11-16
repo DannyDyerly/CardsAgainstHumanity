@@ -202,7 +202,7 @@ public class Player {
                 if (nextRound){
                     boolean asdf1 = false;
                     for (Player obj : players){
-                        if (obj.score>=1)
+                        if (obj.score>=5)
                             asdf1 = true;
                     }
                     if (asdf1)
@@ -454,7 +454,7 @@ public class Player {
             g.setFont(new Font("Arial",Font.PLAIN,30));
             g.setColor(Color.black);
             for (Player obj : players){
-                if (obj.name.equals(winner)&&obj.score>=1){
+                if (obj.name.equals(winner)&&obj.score>=5){
                     Button.setBoo(true);
                     if (winner.length()<10)
                 g.drawString(winner + " is the", Window.getX(1070), Window.getYNormal(680));
@@ -538,6 +538,7 @@ public class Player {
     public static void reset(){
         for (Player obj : players){
                 obj.score=0;
+                obj.hand.clear();
         }
         nextRound =false;
         dispWin=false;
