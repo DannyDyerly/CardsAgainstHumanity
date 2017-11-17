@@ -46,7 +46,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
     Black card28 = Black.Create("What's that sound?");
     Black card29 = Black.Create("Jedis are able to use the force because they possess _____.");
     Black card30 = Black.Create("Mr. Yee's favorite videogame is _____.");
-    Black card31 = Black.Create("Grandma's last words were: _____.");
+    Black card31 = Black.Create("Grandma's last words were ''_____''.");
     Black card32 = Black.Create("_____. Fun for the whole family!");
     Black card33 = Black.Create("I think _____ is going a little to far.");
     Black card34 = Black.Create("The Girl Scouts now have a badge for _____.");
@@ -63,7 +63,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
     White card60 = White.Create("Coming to the middle.");
     White card61 = White.Create("Coming to the middle... again.");
     White card62 = White.Create("Chewing a grapefruit-sized scab off a hobo's back.");
-    White card63 = White.Create("TheLengend27.");
+    White card63 = White.Create("TheLegend27.");
     White card64 = White.Create("A sad fat dragon with no friends.");
     White card65 = White.Create("White people.");
     White card66 = White.Create("All-you-can-eat shrimp for $4.99.");
@@ -132,14 +132,14 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
     White card129 = White.Create("I don't care that you broke your elbow.");
     White card130 = White.Create("I'm Lovin' It.");
     White card131 = White.Create("Cory in the House.");
-    White card132 = White.Create("Eating Mr. Yee's hair.");
+    White card132 = White.Create("Eating Mr. Yee's spaghetti.");
     White card133 = White.Create("Eleven's death at the end of Stranger Things 2.");
     White card134 = White.Create("Eleven and Mike's love scene.");
     White card135 = White.Create("Getting stuck in the Upside Down.");
     White card136 = White.Create("Getting your cat eaten by Dart.");
-    White card137 = White.Create("I'm Pickle Rick.");
+    White card137 = White.Create("Pickle Rick.");
     White card138 = White.Create("Szechuan Sauce.");
-    White card139 = White.Create("The Kool-Aid Man. Oh yeah!");
+    White card139 = White.Create("Mr. Yee's level 100 warlock.");
     White card140 = White.Create("The pleasure of licking your elbow.");
     White card141 = White.Create("The soft touch of an elderly man.");
     White card142 = White.Create("Sexy time.");
@@ -179,10 +179,10 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
     White card176 = White.Create("Some choccy milk.");
     White card177 = White.Create("A safety torch.");
     White card178 = White.Create("Swinging your diamond sword.");
-    White card179 = White.Create("A nuggest in a buscuit.");
+    White card179 = White.Create("A nugget in a biscuit.");
     White card180 = White.Create("Going to the movies with Big Shaq and Kim Jong Un.");
     White card181 = White.Create("A real big doggo.");
-    White card182 = White.Create("Eating hot cheetos until your stomach explodes and pours into your absominal cavity.");
+    White card182 = White.Create("Eating hot cheetos until your stomach explodes and pours into your abdominal cavity.");
     White card183 = White.Create("Failing the Maze test.");
     White card184 = White.Create("Losing a game of Kahoot.");
     White card185 = White.Create("12 shaved ferrets squirming in a basket.");
@@ -194,11 +194,11 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
     White card191 = White.Create("Going to highshool with Barack Obama.");
     White card192 = White.Create("Lil Pump getting accepted to Harvard.");
     White card193 = White.Create("Ebola.");
-    White card194 = White.Create("Finding out that cashews come from a fruit.");
+    White card194 = White.Create("The MVHS football team.");
     White card195 = White.Create("An anime body pillow.");
     White card196 = White.Create("A squirt gun filled with cat pee.");
     White card197 = White.Create("Peanut butter jelly time.");
-    White card198 = White.Create("Getting your baby stolem by dingos.");
+    White card198 = White.Create("Getting your baby stolen by dingos.");
     White card199 = White.Create("Faking a jellyfish sting so someone will pee on you.");
     White card200 = White.Create("Being stalked by a duck.");
 
