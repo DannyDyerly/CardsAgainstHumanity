@@ -159,6 +159,7 @@ public class Button {
                     Player.resetWin();
                     Black.setNextRoundTrue();
                     White.resetSelected();
+                    Player.addCard();
                 }
             }
             else if(obj.text == "New Game" && obj.mouseOver){

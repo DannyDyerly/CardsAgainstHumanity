@@ -66,8 +66,9 @@ public class Player {
     public static void DrawCards(){
         for(Player obj : players){
             White addWhite = White.getRandomWhite();
-            if(addWhite == null || obj.hand.size()>=9)
+            if(addWhite == null || obj.hand.size()>=9){
                 return;
+            }
             addWhite.setUsed(true);
             obj.hand.add(addWhite);
             addWhite.setPlayer(obj);
