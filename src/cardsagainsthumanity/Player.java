@@ -28,7 +28,11 @@ public class Player {
     }
     
     Player(String _name, int _number, boolean _czar){
-        name = _name;
+        if(_name.length()<10)
+                name = _name;
+            else
+                name = _name.substring(0, 9);
+        
         number = _number;
         czar = _czar;
         score=0;
@@ -245,10 +249,7 @@ public class Player {
         g.drawRoundRect(Window.getX(x), Window.getYNormal(y-210), 400, 60,25,25);
         g.drawRoundRect(Window.getX(x), Window.getYNormal(y-280), 400, 60,25,25);
         for (Player obj : players){
-            if(obj.name.length()<10)
                 g.drawString(obj.name, Window.getX(x+7), Window.getYNormal(y-23));
-            else
-                g.drawString(obj.name.substring(0, 9), Window.getX(x+7), Window.getYNormal(y-23));
             g.drawString(obj.score + " Awesome Points",Window.getX(x+7), Window.getYNormal(y-53));
             if (obj.czar){
                 g.drawString("Card Czar",Window.getX(x+250), Window.getYNormal(y-36));

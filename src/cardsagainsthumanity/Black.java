@@ -78,10 +78,10 @@ public class Black extends Card {
     }
     
     public int getWords(int _amount){
-        for (int i = _amount; i>_amount-18;i--)
+        for (int i = _amount; i>_amount-17;i--)
         {
-            if (getText().subSequence(_amount-18, i).toString().endsWith(" ")){
-                if (getText().subSequence(_amount-18, i).length()<18)
+            if (getText().subSequence(_amount-17, i).toString().endsWith(" ")){
+                if (getText().subSequence(_amount-17, i).length()<18)
                     return(i);
             }
         }

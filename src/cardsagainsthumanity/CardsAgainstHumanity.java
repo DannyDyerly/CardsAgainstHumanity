@@ -269,7 +269,7 @@ public class CardsAgainstHumanity extends JFrame implements Runnable {
 
                 } else if (e.VK_D == e.getKeyCode()) {
 
-                } else if (e.VK_SPACE == e.getKeyCode()) {   
+                } else if (e.VK_F5 == e.getKeyCode()) {   
                     Black.setNextRoundTrue();
                     Black.getRandomBlack();
                 }
