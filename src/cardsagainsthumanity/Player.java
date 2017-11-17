@@ -365,7 +365,7 @@ public class Player {
                 }
                 else{
                     g.drawString("White cards with no text can be selected to type whatever you want.",Window.getX(20) , Window.getYNormal(325));
-                    g.drawString("Make sure no other players are peeking while it's your turn!.",Window.getX(20) , Window.getYNormal(300));
+                    g.drawString("Make sure no other players are peeking while it's your turn!",Window.getX(20) , Window.getYNormal(300));
                     boolean selected = false;
                     White selectedCard = null;
                     for(White ptr : obj.hand){
@@ -523,6 +523,14 @@ public class Player {
             p2 = (int)(Math.random()*numPlayers);
         }
         Black card39 = Black.Create(players.get(p).name + " and " + players.get(p2).name + " were _____ last night.");
+        p = (int)(Math.random()*numPlayers);
+        Black card38 = Black.Create(players.get(p).name + " keeps _____ in his/her closet.");
+        p = (int)(Math.random()*numPlayers);
+        Black card37 = Black.Create(players.get(p).name + " eats _____ for breakfast.");
+        p = (int)(Math.random()*numPlayers);
+        Black card36 = Black.Create(players.get(p).name + " likes _____ in the shower.");
+        p = (int)(Math.random()*numPlayers);
+        Black card35 = Black.Create(players.get(p).name + " has 400 photos of _____ on his/her phone.");
     }
     
     public static void remove(){
